@@ -18,7 +18,7 @@ flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
 rpm-ostree install obs-studio mpv yt-dlp
 # Presentation machine packages
 rpm-ostree install libreoffice
-flatpak install --system im.riot.Riot
+flatpak install --noninteractive --system im.riot.Riot
 
 #### Example for enabling a System Unit File
 
