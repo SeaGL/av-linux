@@ -16,6 +16,7 @@ RELEASE="$(rpm -E %fedora)"
 rpm-ostree install obs-studio mpv yt-dlp
 # Presentation machine packages
 rpm-ostree install libreoffice
+flatpak install im.riot.Riot
 
 #### Example for enabling a System Unit File
 
