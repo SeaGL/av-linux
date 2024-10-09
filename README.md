@@ -17,7 +17,7 @@ Working knowledge in the following topics:
   - https://coreos.github.io/rpm-ostree/container/
 - Fedora Silverblue (and other Fedora Atomic variants)
   - https://docs.fedoraproject.org/en-US/fedora-silverblue/
-- Github Workflows
+- GitHub Workflows
   - https://docs.github.com/en/actions/using-workflows
 
 # Installation
@@ -28,7 +28,18 @@ This procedure was tested on one of the conference's streaming laptops; you may 
 2. Select Automatic partitioning and check the checkbox to free space by removing or resizing existing partitions.
 3. When prompted, remove **all** partitions, including and especially the EFI System Partition.
 4. Run the installer.
-5. TODO.
+5. Reboot.
+6. Go through setup.
+   1. Connect to WiFi.
+   2. Leave location services enabled.
+   3. Enable Third-Party Repositories and click Next.
+   4. Set Full Name to "SeaGL Provisioning".
+   5. Accept the default username of `seaglprovisioning`.
+   6. Set the password to `password`.
+7. WARNING SEMI-UNTESTED FROM THIS POINT FORWARD: In a terminal, run `sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/seagl/av-linux:latest`. You can monitor progress of this step with `rpm-ostree status` and `sudo journalctl -fu rpm-ostreed.service`.
+8. When `rpm-ostree status` reports `Status: idle`, reboot.
+9. In a terminal, rebase to the signed image with `sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/seagl/av-linux:latest`.
+10. When `rpm-ostree status` reports `Status: idle`, reboot.
 
 # How to Use
 
