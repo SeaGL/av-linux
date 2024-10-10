@@ -8,6 +8,8 @@ set -euo pipefail
 IMAGE_VENDOR="SeaGL"
 IMAGE_NAME="av-linux"
 IMAGE_BRANCH="main"
+IMAGE_FLAVOR="main"
+BASE_IMAGE_NAME="${SOURCE_IMAGE^}"
 
 IMAGE_PRETTY_NAME="SeaGL A/V Linux"
 IMAGE_LIKE="fedora"
@@ -48,22 +50,22 @@ cat > $IMAGE_INFO <<EOF
   "image-branch": "$IMAGE_BRANCH_NORMALIZED",
   "base-image-name": "$BASE_IMAGE_NAME",
   "fedora-version": "$FEDORA_MAJOR_VERSION",
-  "version": "$VERSION_TAG",
-  "version-pretty": "$VERSION_PRETTY"
+  "version": "$CODE_NAME",
+  "version-pretty": "$CODE_NAME"
 }
 EOF
 
 # OS Release File
 sed -i "s/^VARIANT_ID=.*/VARIANT_ID=$IMAGE_NAME/" /usr/lib/os-release
-sed -i "s/^PRETTY_NAME=.*/PRETTY_NAME=\"Bazzite $FEDORA_MAJOR_VERSION (FROM Fedora ${BASE_IMAGE_NAME^})\"/" /usr/lib/os-release
-sed -i "s/^NAME=.*/NAME=\"$IMAGE_PRETTY_NAME\"/" /usr/lib/os-release
+sed -i "s|^PRETTY_NAME=.*|PRETTY_NAME=\"$IMAGE_PRETTY_NAME $CODE_NAME (FROM Fedora ${BASE_IMAGE_NAME^} $FEDORA_MAJOR_VERSION)\"|" /usr/lib/os-release
+sed -i "s|^NAME=.*|NAME=\"$IMAGE_PRETTY_NAME\"|" /usr/lib/os-release
 sed -i "s|^HOME_URL=.*|HOME_URL=\"$HOME_URL\"|" /usr/lib/os-release
 sed -i "s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=\"$DOCUMENTATION_URL\"|" /usr/lib/os-release
 sed -i "/SUPPORT_URL/d" /usr/lib/os-release
 sed -i "s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"$BUG_SUPPORT_URL\"|" /usr/lib/os-release
 sed -i "s|^CPE_NAME=\"cpe:/o:fedoraproject:fedora|CPE_NAME=\"cpe:/o:universal-blue:${IMAGE_PRETTY_NAME,}|" /usr/lib/os-release
 sed -i "/DEFAULT_HOSTNAME=/d" /usr/lib/os-release
-sed -i "s/^ID=fedora/ID=${IMAGE_PRETTY_NAME,}\nID_LIKE=\"${IMAGE_LIKE}\"/" /usr/lib/os-release
+sed -i "s/^ID=fedora/ID=seaglav\nID_LIKE=\"${IMAGE_LIKE}\"/" /usr/lib/os-release
 sed -i "s/^LOGO=.*/LOGO=$LOGO_ICON/" /usr/lib/os-release
 sed -i "s/^ANSI_COLOR=.*/ANSI_COLOR=\"$LOGO_COLOR\"/" /usr/lib/os-release
 sed -i "/^REDHAT_BUGZILLA_PRODUCT=/d; /^REDHAT_BUGZILLA_PRODUCT_VERSION=/d; /^REDHAT_SUPPORT_PRODUCT=/d; /^REDHAT_SUPPORT_PRODUCT_VERSION=/d" /usr/lib/os-release
@@ -73,7 +75,7 @@ if [[ -n "${SHA_HEAD_SHORT:-}" ]]; then
   echo "BUILD_ID=\"$SHA_HEAD_SHORT\"" >> /usr/lib/os-release
 fi
 
-echo "BOOTLOADER_NAME=\"$IMAGE_PRETTY_NAME $VERSION_PRETTY\"" >> /usr/lib/os-release
+echo "BOOTLOADER_NAME=\"$IMAGE_PRETTY_NAME $CODE_NAME\"" >> /usr/lib/os-release
 
 # Fix issues caused by ID no longer being fedora
 sed -i "s/^EFIDIR=.*/EFIDIR=\"fedora\"/" /usr/sbin/grub2-switch-to-blscfg
