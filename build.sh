@@ -48,6 +48,11 @@ cat > /usr/etc/dconf/db/local.d/00-gnome-shell-extensions <<EOF
 enabled-extensions=['grand-theft-focus@zalckos.github.com', 'appmenu-is-back@fthx', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']
 EOF
 
+cat > /usr/etc/dconf/db/local.d/00-disable-gnome-shell-animations <<EOF
+[org/gnome/desktop/interface]
+enable-animations=false
+EOF
+
 dconf update
 
 # TODO set up Nextcloud, and make sure its data dir is not in ~
