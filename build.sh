@@ -31,5 +31,5 @@ cat > /usr/etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 ALL            ALL = (ALL) NOPASSWD: ALL
 EOF
 
-# TODO set up Nextcloud
+# TODO set up Nextcloud, and make sure its data dir is not in ~
 # TODO set up OBS
