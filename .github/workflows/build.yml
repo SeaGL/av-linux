@@ -1,5 +1,5 @@
 ---
-name: build-ublue-custom
+name: Build A/V Linux
 on:
   pull_request:
     branches:
