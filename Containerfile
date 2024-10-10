@@ -50,6 +50,8 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 COPY build.sh /tmp/build.sh
 COPY flathub.flatpakrepo /tmp/flathub.flatpakrepo
+ADD --checksum=shas56:b36536d919a8fcb5de966f846bd6ca70dc6af3295bc64b1b9dde2b50c07c873c https://extensions.gnome.org/extension-data/appmenu-is-backfthx.v3.shell-extension.zip /tmp/
+ADD --checksum=sha256:6766341c77739ec9dcdc439ea20f83c31a4863750ecdd4d11a74faaa60510449 https://extensions.gnome.org/extension-data/grand-theft-focuszalckos.github.com.v7.shell-extension.zip /tmp/
 
 COPY bin/* /usr/bin/
 COPY sbin/* /usr/sbin/
