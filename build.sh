@@ -23,25 +23,7 @@ flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclie
 
 ### Configure system
 
-cat > /etc/gdm/custom.conf <<EOF
-# GDM configuration storage
-
-[daemon]
-AutomaticLoginEnable=true
-AutomaticLogin=seagloperator
-# Uncomment the line below to force the login screen to use Xorg
-#WaylandEnable=false
-
-[security]
-
-[xdmcp]
-
-[chooser]
-
-[debug]
-# Uncomment the line below to turn on debugging
-#Enable=true
-EOF
+sed -i 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=seagloperator/' /etc/gdm/custom.conf
 systemctl enable seagl-reset-users.service
 
 cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
