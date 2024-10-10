@@ -18,7 +18,7 @@ flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
 rpm-ostree install obs-studio mpv yt-dlp
 # Presentation machine packages
 rpm-ostree install libreoffice
-flatpak install --noninteractive --system im.riot.Riot
+flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclient.nextcloud
 
 #### Example for enabling a System Unit File
 
@@ -30,3 +30,6 @@ cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 # unattended at the venue.
 ALL            ALL = (ALL) NOPASSWD: ALL
 EOF
+
+# TODO set up Nextcloud
+# TODO set up OBS
