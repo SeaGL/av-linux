@@ -9,8 +9,9 @@ IMAGE_VENDOR="SeaGL"
 IMAGE_NAME="av-linux"
 IMAGE_BRANCH="main"
 IMAGE_FLAVOR="main"
-# TODO figure out why this isn't inherited from Containerfile ARG
+# TODO figure out why these aren't inherited from Containerfile ARG
 SOURCE_IMAGE="silverblue"
+FEDORA_MAJOR_VERSION="40"
 BASE_IMAGE_NAME="${SOURCE_IMAGE^}"
 
 IMAGE_PRETTY_NAME="SeaGL A/V Linux"
