@@ -60,6 +60,7 @@ ADD https://extensions.gnome.org/extension-data/grand-theft-focuszalckos.github.
 COPY bin/* /usr/bin/
 COPY sbin/* /usr/sbin/
 COPY systemd/* /usr/lib/systemd/system/
+COPY misc/seagl-state-dir.conf /usr/lib/tmpfiles.d/
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
