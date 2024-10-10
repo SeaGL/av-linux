@@ -21,6 +21,8 @@ flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclie
 
 ### Configure system
 
+/tmp/osrelease.sh
+
 sed -i 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=seagloperator/' /usr/etc/gdm/custom.conf
 systemctl enable seagl-reset-users.service
 

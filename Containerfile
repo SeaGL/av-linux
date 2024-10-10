@@ -49,6 +49,7 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
 COPY build.sh /tmp/build.sh
+COPY osrelease.sh /tmp/osrelease.sh
 COPY flathub.flatpakrepo /tmp/flathub.flatpakrepo
 # Apparently Buildah doesn't support --checksum :/
 # TODO --checksum=shas56:b36536d919a8fcb5de966f846bd6ca70dc6af3295bc64b1b9dde2b50c07c873c
