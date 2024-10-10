@@ -23,6 +23,7 @@ flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclie
 
 ### Configure system
 
+mkdir -p /usr/etc/gdm
 cat > /usr/etc/gdm/custom.conf <<EOF
 # GDM configuration storage
 
