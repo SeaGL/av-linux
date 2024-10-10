@@ -61,6 +61,7 @@ COPY bin/* /usr/bin/
 COPY sbin/* /usr/sbin/
 COPY systemd/* /usr/lib/systemd/system/
 COPY misc/seagl-state-dir.conf /usr/lib/tmpfiles.d/
+COPY icon/seagl-logo-icon.svg /usr/share/icons/hicolor/scalable/places/
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
