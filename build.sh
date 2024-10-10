@@ -4,6 +4,8 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
+/tmp/osrelease.sh
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -20,8 +22,6 @@ rpm-ostree install libreoffice
 flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclient.nextcloud
 
 ### Configure system
-
-/tmp/osrelease.sh
 
 cat > /usr/etc/gdm/custom.conf <<EOF
 # GDM configuration storage
