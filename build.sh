@@ -23,3 +23,10 @@ flatpak install --noninteractive --system im.riot.Riot
 #### Example for enabling a System Unit File
 
 #systemctl enable podman.socket
+
+cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
+# Don't bother laptop users with needing to know passwords:
+# rooms with laptops are physically secured by UW staff when
+# unattended at the venue.
+ALL            ALL = (ALL) NOPASSWD: ALL
+EOF
