@@ -9,6 +9,8 @@ IMAGE_VENDOR="SeaGL"
 IMAGE_NAME="av-linux"
 IMAGE_BRANCH="main"
 IMAGE_FLAVOR="main"
+# TODO figure out why this isn't inherited from Containerfile ARG
+SOURCE_IMAGE="silverblue"
 BASE_IMAGE_NAME="${SOURCE_IMAGE^}"
 
 IMAGE_PRETTY_NAME="SeaGL A/V Linux"
