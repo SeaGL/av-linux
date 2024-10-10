@@ -31,5 +31,13 @@ cat > /usr/etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 ALL            ALL = (ALL) NOPASSWD: ALL
 EOF
 
+# https://askubuntu.com/q/1037553/49090, https://askubuntu.com/q/1014965/49090, dconf(7)
+cat > /usr/etc/dconf/db/local.d/00-suppress-autosuspend <<EOF
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-type='nothing'
+EOF
+
+dconf update
+
 # TODO set up Nextcloud, and make sure its data dir is not in ~
 # TODO set up OBS
