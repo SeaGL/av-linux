@@ -47,6 +47,7 @@ cd /usr/share/gnome-shell/extensions/appmenu-is-back@fthx
 unzip /tmp/appmenu-is-backfthx.v3.shell-extension.zip
 cd /usr/share/gnome-shell/extensions/grand-theft-focus@zalckos.github.com
 unzip /tmp/grand-theft-focuszalckos.github.com.v7.shell-extension.zip
+chmod 644 /usr/share/gnome-shell/extensions/*/*
 cat > /etc/dconf/db/local.d/00-gnome-shell-extensions <<EOF
 [org/gnome/shell]
 enabled-extensions=['grand-theft-focus@zalckos.github.com', 'appmenu-is-back@fthx', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']
