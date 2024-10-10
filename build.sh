@@ -13,8 +13,8 @@ RELEASE="$(rpm -E %fedora)"
 
 flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
 
-# Streaming packages
-rpm-ostree install obs-studio mpv yt-dlp
+# Streaming machine packages
+rpm-ostree install obs-studio mpv yt-dlp zenity
 # Presentation machine packages
 rpm-ostree install libreoffice
 flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclient.nextcloud

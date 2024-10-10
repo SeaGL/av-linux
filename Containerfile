@@ -51,6 +51,7 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 COPY build.sh /tmp/build.sh
 COPY flathub.flatpakrepo /tmp/flathub.flatpakrepo
 
+COPY bin/* /usr/bin/
 COPY sbin/* /usr/sbin/
 COPY systemd/* /usr/lib/systemd/system/
 
