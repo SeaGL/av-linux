@@ -23,7 +23,7 @@ flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclie
 
 ### Configure system
 
-cat > /usr/etc/gdm/custom.conf <<EOF
+cat > /etc/gdm/custom.conf <<EOF
 # GDM configuration storage
 
 [daemon]
@@ -44,7 +44,7 @@ AutomaticLogin=seagloperator
 EOF
 systemctl enable seagl-reset-users.service
 
-cat > /usr/etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
+cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 # Don't bother laptop users with needing to know passwords:
 # rooms with laptops are physically secured by UW staff when
 # unattended at the venue.
@@ -52,7 +52,7 @@ ALL            ALL = (ALL) NOPASSWD: ALL
 EOF
 
 # https://askubuntu.com/q/1037553/49090, https://askubuntu.com/q/1014965/49090, dconf(7)
-cat > /usr/etc/dconf/db/local.d/00-suppress-autosuspend <<EOF
+cat > /etc/dconf/db/local.d/00-suppress-autosuspend <<EOF
 [org/gnome/settings-daemon/plugins/power]
 sleep-inactive-ac-type='nothing'
 EOF
@@ -63,12 +63,12 @@ cd /usr/share/gnome-shell/extensions/appmenu-is-back@fthx
 unzip /tmp/appmenu-is-backfthx.v3.shell-extension.zip
 cd /usr/share/gnome-shell/extensions/grand-theft-focus@zalckos.github.com
 unzip /tmp/grand-theft-focuszalckos.github.com.v7.shell-extension.zip
-cat > /usr/etc/dconf/db/local.d/00-gnome-shell-extensions <<EOF
+cat > /etc/dconf/db/local.d/00-gnome-shell-extensions <<EOF
 [org/gnome/shell]
 enabled-extensions=['grand-theft-focus@zalckos.github.com', 'appmenu-is-back@fthx', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']
 EOF
 
-cat > /usr/etc/dconf/db/local.d/00-disable-gnome-shell-animations <<EOF
+cat > /etc/dconf/db/local.d/00-disable-gnome-shell-animations <<EOF
 [org/gnome/desktop/interface]
 enable-animations=false
 EOF
