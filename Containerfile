@@ -51,6 +51,9 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 COPY build.sh /tmp/build.sh
 COPY flathub.flatpakrepo /tmp/flathub.flatpakrepo
 
+COPY sbin/* /usr/sbin/
+COPY systemd/* /usr/lib/systemd/system/
+
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit

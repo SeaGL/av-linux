@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if ! [ $(id -u) == 0 ]; then
+	echo must be run as root 1>&2
+	exit 1
+fi
+
+# Delete all existing users except root
+grep -v '^root' /etc/passwd | cut -d: -f1 | xargs -n 1 userdel -f -r
+
+# Password hash corresponds to `password`
+adduser seagloperator -mp '$y$j9T$emVbho1jsDyzxlJVlATJU.$GYps0oI9FuW.WC3KCXZQkRDq8zGV0gjDIuJLAK1mtP8'
+
+touch /var/lib/seagl/users-created

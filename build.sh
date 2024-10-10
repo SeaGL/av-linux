@@ -4,7 +4,6 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
-
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -20,9 +19,10 @@ rpm-ostree install obs-studio mpv yt-dlp
 rpm-ostree install libreoffice
 flatpak install --noninteractive --system im.riot.Riot com.nextcloud.desktopclient.nextcloud
 
-#### Example for enabling a System Unit File
+### Configure system
 
-#systemctl enable podman.socket
+sed -i 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=seagloperator/' /usr/etc/gdm/custom.conf
+systemctl enable seagl-reset-users.service
 
 cat > /usr/etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 # Don't bother laptop users with needing to know passwords:

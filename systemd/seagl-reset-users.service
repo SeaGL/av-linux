@@ -1,0 +1,14 @@
+[Unit]
+Description=Set up SeaGL operator user
+DefaultDependencies=no
+# Consult bootup(7) for more info about this and basic.target
+After=sysinit.target
+ConditionPathNotExists=/var/lib/seagl/users-created
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/seagl-reset-users
+
+[Install]
+WantedBy=basic.target
