@@ -15,9 +15,9 @@ while ! age --decrypt /var/lib/seagl/config-data.json.age > /var/lib/seagl/confi
 done
 
 if test -e /var/lib/seagl/config-data.json; then
-	diff --color=always /var/lib/seagl/config-data.json{,.new}
+	diff --color=always /var/lib/seagl/config-data.json{,.new} || true
 else
-	echo | diff --color=always - /var/lib/seagl/config-data.json.new
+	echo | diff --color=always - /var/lib/seagl/config-data.json.new || true
 fi
 
 mv /var/lib/seagl/config-data.json{.new,}
