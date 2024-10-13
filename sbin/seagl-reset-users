@@ -11,6 +11,6 @@ fi
 grep -ve '^root' -e '^firebird' /etc/passwd | cut -d: -f1 | xargs -n 1 userdel -f -r
 
 # Password hash corresponds to `password`
-adduser seagloperator -mp '$y$j9T$emVbho1jsDyzxlJVlATJU.$GYps0oI9FuW.WC3KCXZQkRDq8zGV0gjDIuJLAK1mtP8'
+adduser seagloperator -mp '$y$j9T$emVbho1jsDyzxlJVlATJU.$GYps0oI9FuW.WC3KCXZQkRDq8zGV0gjDIuJLAK1mtP8' -G wheel
 
 touch /var/lib/seagl/users-created
