@@ -66,5 +66,12 @@ EOF
 
 dconf update
 
+# Put some useful stuff in bash history so ^R muscle memory works (AJ relies on this a lot)
+cat > /etc/skel/.bash_history <<EOF
+$(ls bin)
+$(ls sbin)
+sudo rpm-ostree update
+EOF
+
 # TODO set up Nextcloud, and make sure its data dir is not in ~
 # TODO set up OBS
