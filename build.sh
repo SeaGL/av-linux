@@ -116,6 +116,7 @@ cat > /etc/firefox/policies/policies.json <<EOF
 				"Placement": "toolbar"
 			}
 		],
+		"DisableFirefoxAccounts": true,
 		"DisablePocket": true,
 		"DisplayBookmarksToolbar": "always",
 		"ExtensionSettings": {
