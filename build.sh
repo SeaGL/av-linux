@@ -41,6 +41,11 @@ cat > /etc/dconf/db/local.d/00-suppress-autosuspend <<EOF
 sleep-inactive-ac-type='nothing'
 EOF
 
+cat > /etc/dconf/db/local.d/00-disable-screen-lock <<EOF
+[org/gnome/desktop/screensaver]
+lock-enabled=false
+EOF
+
 # https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/desktop_migration_and_administration_guide/extensions-enable
 mkdir -p /usr/share/gnome-shell/extensions/{appmenu-is-back@fthx,grand-theft-focus@zalckos.github.com}
 cd /usr/share/gnome-shell/extensions/appmenu-is-back@fthx
