@@ -97,6 +97,3 @@ $(ls /usr/bin/seagl* | xargs -n 1 basename)
 $(ls /usr/sbin/seagl* | xargs -n 1 basename)
 sudo rpm-ostree update
 EOF
-
-# TODO set up Nextcloud, and make sure its data dir is not in ~
-# TODO set up OBS

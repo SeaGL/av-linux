@@ -1,0 +1,17 @@
+[Unit]
+Description=Nextcloud mount that survives system reprovisions
+DefaultDependencies=no
+Conflicts=umount.target
+After=local-fs.target
+Before=multi-user.target umount.target
+ConditionPathExists=/home/seagloperator
+
+[Mount]
+What=/var/lib/seagl-nextcloud
+Where=/home/seagloperator/Nextcloud
+Type=none
+Options=bind
+DirectoryMode=0777
+
+[Install]
+WantedBy=multi-user.target
