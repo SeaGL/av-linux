@@ -78,8 +78,8 @@ dconf update
 
 # Put some useful stuff in bash history so ^R muscle memory works (AJ relies on this a lot)
 cat > /etc/skel/.bash_history <<EOF
-$(ls bin)
-$(ls sbin)
+$(ls /usr/bin/seagl* | xargs -n 1 basename)
+$(ls /usr/sbin/seagl* | xargs -n 1 basename)
 sudo rpm-ostree update
 EOF
 
