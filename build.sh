@@ -34,15 +34,13 @@ cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 ALL            ALL = (ALL) NOPASSWD: ALL
 EOF
 
-# https://askubuntu.com/a/123260/49090
-cat > /var/lib/polkit-1/localauthority/50-local.d/disable-passwords.pkla <<EOF
-[Do anything you want]
-# Don't bother laptop users with needing to know passwords:
-# rooms with laptops are physically secured by UW staff when
-# unattended at the venue.
-Identity=unix-group:admin
-Action=*
-ResultActive=yes
+cat > /etc/polkit-1/rules.d/00-allow-everything.rules <<EOF
+// Don't bother laptop users with needing to know passwords:
+// rooms with laptops are physically secured by UW staff when
+// unattended at the venue.
+polkit.addRule(function(action, subject) {
+    return polkit.Result.YES;
+});
 EOF
 
 # https://askubuntu.com/q/1037553/49090, https://askubuntu.com/q/1014965/49090, dconf(7)
