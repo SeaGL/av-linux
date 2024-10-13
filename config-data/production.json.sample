@@ -1,1 +1,29 @@
-{}
+{
+	"_comment": "The authoritative copy of the production version of this file is the one stored in this repo.",
+	"rtmpKeys": {
+		"Lyceum": "XXX",
+		"332": "XXX",
+		"334": "XXX",
+		"340": "XXX"
+	},
+	"matrixCredentials": {
+		"Lyceum": {
+			"user": "XXX",
+			"password": "XXX"
+		},
+		"332": {
+			"user": "XXX",
+			"password": "XXX"
+		},
+		"334": {
+			"user": "XXX",
+			"password": "XXX"
+		},
+		"340": {
+			"user": "XXX",
+			"password": "XXX"
+		}
+	}
+	"nextcloudAppPassword": "XXX",
+	"avTestResultsSheetURL": "XXX"
+}
