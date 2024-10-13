@@ -3,6 +3,9 @@
 set -euo pipefail
 set -x
 
+# This ensures that you can see error output when this script is autorun
+trap bash ERR
+
 if [ -e /var/lib/seagl/room-setup-complete ]; then
 	exit 0
 fi
