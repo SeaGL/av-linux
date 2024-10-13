@@ -71,7 +71,7 @@ EOF
 
 cat > /etc/dconf/db/local.d/00-disable-gnome-tour <<EOF
 [org/gnome/shell]
-welcome-dialog-last-shown-version=$(rpm -qv gnome-shell | cut -d- -f3)
+welcome-dialog-last-shown-version='$(rpm -qv gnome-shell | cut -d- -f3)'
 EOF
 
 dconf update
