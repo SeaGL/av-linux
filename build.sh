@@ -17,7 +17,6 @@ flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
 
 # General system packages
 rpm-ostree install gnome-browser-connector jq
-rpm-ostree override remove gnome-tour
 # Streaming machine packages
 rpm-ostree install obs-studio mpv yt-dlp zenity
 # Presentation machine packages
@@ -66,6 +65,11 @@ EOF
 cat > /etc/dconf/db/local.d/00-set-gnome-shell-dock <<EOF
 [org/gnome/shell]
 favorite-apps=['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'org.libreoffice.LibreOffice.impress.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop']
+EOF
+
+cat > /etc/dconf/db/local.d/00-disable-gnome-tour <<EOF
+[org/gnome/shell]
+welcome-dialog-last-shown-version=$(rpm -qv gnome-shell | cut -d- -f3)
 EOF
 
 dconf update
