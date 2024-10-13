@@ -30,7 +30,7 @@ seagl-refresh-config
 
 if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	# TODO add SeaGL-specific scripts into here
-	sudo -u $SUDO_USER gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
+	sudo -u $SUDO_USER gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
 fi
 
 # Flatpaks cannot be installed in the container image because they go to /var
