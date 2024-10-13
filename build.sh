@@ -47,6 +47,9 @@ EOF
 cat > /etc/dconf/db/local.d/00-suppress-autosuspend <<EOF
 [org/gnome/settings-daemon/plugins/power]
 sleep-inactive-ac-type='nothing'
+
+[org/gnome/desktop/session]
+idle-delay=300
 EOF
 
 cat > /etc/dconf/db/local.d/00-disable-screen-lock <<EOF
