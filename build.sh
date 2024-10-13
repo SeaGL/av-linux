@@ -27,6 +27,8 @@ rpm-ostree install libreoffice nextcloud-client nextcloud-client-nautilus
 sed -i 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=seagloperator/' /etc/gdm/custom.conf
 systemctl enable seagl-reset-users.service
 
+ln -s /usr/share/applications/room-setup.desktop /etc/xdg/autostart
+
 cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 # Don't bother laptop users with needing to know passwords:
 # rooms with laptops are physically secured by UW staff when
