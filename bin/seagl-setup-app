@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ $(id -u) == 0 ]; then
+	echo fatal: cannot be run as root >&2
+	exit 1
+fi
+
+function start_and_link_app() {
+        desktop_file=$1.desktop
+
+        sudo ln -s /usr/share/applications/$desktop_file /etc/xdg/autostart
+
+        nohup gio launch $desktop_file >/dev/null 2>&1
+}
+
+if [ $1 == obs ]; then
+	# TODO provision RTMP keys
+	start_and_link_app com.obsproject.Studio
+elif [ $1 == nextcloud ]; then
+	nextcloud --userid 2024laptops --apppassword "$(jq .nextcloudAppPassword < /var/lib/seagl/config-data.json)" --isvfsenabled 0 --serverurl 'https://cloud.seagl.org/'
+	start_and_link_app com.nextcloud.desktopclient.nextcloud
+elif [ $1 == firefox ]; then
+	# TODO install a profile and fixup the bookmark etc.
+	start_and_link_app org.mozilla.firefox
+else
+	echo fatal: application to be set up must be one of obs, nextcloud, firefox
+fi
