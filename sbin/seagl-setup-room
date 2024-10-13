@@ -29,6 +29,7 @@ seagl-refresh-config
 # TODO set up OBS and Nextcloud, then (auto)launch them
 
 if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
+	# TODO add SeaGL-specific scripts into here
 	gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
 fi
 
