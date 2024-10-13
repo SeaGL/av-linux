@@ -34,6 +34,17 @@ cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
 ALL            ALL = (ALL) NOPASSWD: ALL
 EOF
 
+# https://askubuntu.com/a/123260/49090
+cat > /var/lib/polkit-1/localauthority/50-local.d/disable-passwords.pkla <<EOF
+[Do anything you want]
+# Don't bother laptop users with needing to know passwords:
+# rooms with laptops are physically secured by UW staff when
+# unattended at the venue.
+Identity=unix-group:admin
+Action=*
+ResultActive=yes
+EOF
+
 # https://askubuntu.com/q/1037553/49090, https://askubuntu.com/q/1014965/49090, dconf(7)
 cat > /etc/dconf/db/local.d/00-suppress-autosuspend <<EOF
 [org/gnome/settings-daemon/plugins/power]
