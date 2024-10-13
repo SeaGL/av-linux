@@ -61,6 +61,7 @@ ADD https://extensions.gnome.org/extension-data/grand-theft-focuszalckos.github.
 COPY bin/* /usr/bin/
 COPY sbin/* /usr/sbin/
 COPY systemd/* /usr/lib/systemd/system/
+COPY launchers/* /usr/share/applications/
 COPY misc/seagl-state-dir.conf /usr/lib/tmpfiles.d/
 COPY icon/seagl-logo-icon.svg /usr/share/icons/hicolor/scalable/places/
 

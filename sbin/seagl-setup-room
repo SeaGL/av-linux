@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ -e /var/lib/seagl/room-setup-complete ]; then
+	exit 0
+fi
+
+if ! [ $(id -u) == 0 ]; then
+        echo must be run as root 1>&2
+        exit 1
+fi
+
+mkdir -p /var/lib/seagl
+zenity --list --text='Which room is this?' --column=Room Lyceum 332 334 340 > /var/lib/seagl/room-id
+
+hostnamectl location "$(sed -E 's/([[:digit:]])/Room \1/' < /var/lib/seagl/room-id)"
+
+if zenity --question --text='Should this laptop be provisioned for streaming? Choose no if it will only be used for presentations.'; then
+	echo streaming > /var/lib/seagl/laptop-type
+else
+	echo presentations > /var/lib/seagl/laptop-type
+fi
+
+hostnamectl hostname seagl-$(tr '[:upper:]' '[:lower:]' < /var/lib/seagl/room-id)-$(cat /var/lib/seagl/laptop-type)
+
+# TODO retrieve config, etc.
+
+touch /var/lib/seagl/room-setup-complete
