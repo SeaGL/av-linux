@@ -33,6 +33,9 @@ if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
 fi
 
+# Flatpaks cannot be installed in the container image because they go to /var
+sudo flatpak install --noninteractive --system im.riot.Riot
+
 # For some reason, Toolbx wants to create a Fedora 38 container??
 # TODO confirm this is an upstream bug, then report
 yes | toolbox create --release f40

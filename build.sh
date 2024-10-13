@@ -21,7 +21,7 @@ rpm-ostree install gnome-browser-connector jq age
 rpm-ostree install obs-studio mpv yt-dlp zenity
 # Presentation machine packages
 rpm-ostree install libreoffice nextcloud-client nextcloud-client-nautilus
-flatpak install --noninteractive --system im.riot.Riot
+
 ### Configure system
 
 sed -i 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=seagloperator/' /etc/gdm/custom.conf
