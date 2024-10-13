@@ -9,7 +9,7 @@ fi
 # TODO figure out how to script age's password input, then cache the password here
 curl https://seagl.org/av-linux/production.json.age > /var/lib/seagl/config-data.json.age
 echo Decrypting laptop configuration data - you will be prompted for the password
-while ! age --decrypt /var/lib/seagl/config-data.json.age > /var/lib/seagl/config-data.json; do
+while ! age --decrypt /var/lib/seagl/config-data.json.age > /var/lib/seagl/config-data.json.new; do
 	true
 done
 
