@@ -54,6 +54,9 @@ EOF
 cat > /etc/dconf/db/local.d/00-disable-screen-lock <<EOF
 [org/gnome/desktop/screensaver]
 lock-enabled=false
+
+[org/gnome/desktop/lockdown]
+disable-lock-screen true
 EOF
 
 # https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/desktop_migration_and_administration_guide/extensions-enable
