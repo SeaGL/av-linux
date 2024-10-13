@@ -64,6 +64,11 @@ cat > /etc/dconf/db/local.d/00-disable-gnome-shell-animations <<EOF
 enable-animations=false
 EOF
 
+cat > /etc/dconf/db/local.d/00-set-gnome-shell-dock <<EOF
+[org/gnome/shell]
+favorite-apps=['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'org.libreoffice.LibreOffice.impress.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop']
+EOF
+
 dconf update
 
 # Put some useful stuff in bash history so ^R muscle memory works (AJ relies on this a lot)
