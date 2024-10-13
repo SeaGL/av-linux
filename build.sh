@@ -81,7 +81,7 @@ cat > /etc/dconf/db/local.d/00-set-gnome-shell-dock <<EOF
 [org/gnome/shell]
 # This is for presentation laptops. Streaming laptops override this at runtime during room setup.
 # TODO add SeaGL-specific scripts into here
-favorite-apps=['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'org.libreoffice.LibreOffice.impress.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop']
+favorite-apps=['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'org.libreoffice.LibreOffice.impress.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop']
 EOF
 
 cat > /etc/dconf/db/local.d/00-disable-gnome-tour <<EOF
