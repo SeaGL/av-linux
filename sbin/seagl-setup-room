@@ -47,3 +47,7 @@ flatpak install --noninteractive --system im.riot.Riot
 yes | sudo -u $SUDO_USER toolbox create --release f40
 
 touch /var/lib/seagl/room-setup-complete
+
+echo Room setup complete. Dropping you into a shell.
+# Mostly we do this so you can still read log messages after the script finishes, if it was started from a desktop file
+bash
