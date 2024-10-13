@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+set -x
 
 if [ -e /var/lib/seagl/room-setup-complete ]; then
 	exit 0

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+set -x
 
 if ! zenity --question --icon=dialog-warning --text='Are you sure you wish to reprovision from scratch? This will immediately reboot the system and may take multiple minutes.\n\nReprovisioning will NOT change the OS image.'; then
 	echo aborting reprovision due to user response 1>&2

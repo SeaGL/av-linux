@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -euo pipefail
+set -x
 
 if ! [ $(id -u) == 0 ]; then
 	echo must be run as root 1>&2

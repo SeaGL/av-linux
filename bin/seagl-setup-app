@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+set -x
 
 if [ $(id -u) == 0 ]; then
 	echo fatal: cannot be run as root >&2
