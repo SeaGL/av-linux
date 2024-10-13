@@ -33,6 +33,10 @@ if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	sudo -u $SUDO_USER gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'org.gnome.TextEditor.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
 fi
 
+sudo -u $SUDO_USER nextcloud --userid 2024laptops --apppassword "$(jq .nextcloudAppPassword < /var/lib/seagl/config-data.json)" --isvfsenabled 0 --serverurl 'https://cloud.seagl.org/'
+
+# We leave expensive downloads for last, and prioritize by usefulness
+
 # Flatpaks cannot be installed in the container image because they go to /var
 flatpak install --noninteractive --system im.riot.Riot
 
