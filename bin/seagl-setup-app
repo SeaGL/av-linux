@@ -14,7 +14,7 @@ fi
 
 function start_and_link_app() {
 	desktop_file=$1.desktop
-	$desktop_file_full=/usr/share/applications/$desktop_file
+	desktop_file_full=/usr/share/applications/$desktop_file
 
 	if ! test -e $desktop_file_full; then
 		sudo ln -s $desktop_file_full /etc/xdg/autostart
