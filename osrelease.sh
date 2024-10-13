@@ -66,7 +66,6 @@ sed -i "s|^HOME_URL=.*|HOME_URL=\"$HOME_URL\"|" /usr/lib/os-release
 sed -i "s|^DOCUMENTATION_URL=.*|DOCUMENTATION_URL=\"$DOCUMENTATION_URL\"|" /usr/lib/os-release
 sed -i "/SUPPORT_URL/d" /usr/lib/os-release
 sed -i "s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"$BUG_SUPPORT_URL\"|" /usr/lib/os-release
-sed -i "s|^CPE_NAME=\"cpe:/o:fedoraproject:fedora|CPE_NAME=\"cpe:/o:universal-blue:${IMAGE_PRETTY_NAME,}|" /usr/lib/os-release
 sed -i "/DEFAULT_HOSTNAME=/d" /usr/lib/os-release
 sed -i "s/^ID=fedora/ID=seaglav\nID_LIKE=\"${IMAGE_LIKE}\"/" /usr/lib/os-release
 sed -i "s/^LOGO=.*/LOGO=$LOGO_ICON/" /usr/lib/os-release
