@@ -22,7 +22,7 @@ elif [ $1 == nextcloud ]; then
 	nextcloud --userid 2024laptops --apppassword "$(jq .nextcloudAppPassword < /var/lib/seagl/config-data.json)" --isvfsenabled 0 --serverurl 'https://cloud.seagl.org/'
 	start_and_link_app com.nextcloud.desktopclient.nextcloud
 elif [ $1 == firefox ]; then
-	# TODO install a profile and fixup the bookmark etc.
+	sed -i "s;AV_TEST_RESULTS_PLACEHOLDER;$(jq .avTestResultsSheetURL < /var/lib/seagl/config-data.json);" /etc/firefox/policies/policies.json
 	start_and_link_app org.mozilla.firefox
 else
 	echo fatal: application to be set up must be one of obs, nextcloud, firefox

@@ -99,3 +99,44 @@ $(ls /usr/bin/seagl* | xargs -n 1 basename)
 $(ls /usr/sbin/seagl* | xargs -n 1 basename)
 sudo rpm-ostree update
 EOF
+
+mkdir -p /etc/firefox/policies
+cat > /etc/firefox/policies/policies.json <<EOF
+{
+	"policies": {
+		"Bookmarks": [
+			{
+				"Title": "Attend Portal",
+				"URL": "https://attend.seagl.org/",
+				"Placement": "toolbar"
+			},
+			{
+				"Title": "A/V test results",
+				"URL": "AV_TEST_RESULTS_PLACEHOLDER",
+				"Placement": "toolbar"
+			}
+		],
+		"DisablePocket": true,
+		"DisplayBookmarksToolbar": "always",
+		"ExtensionSettings": {
+			"chrome-gnome-shell@gnome.org": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/chrome-gnome-shell@gnome.org/latest.xpi"
+			}
+		},
+		"Homepage": {
+			"URL": "https://attend.seagl.org/",
+			"StartPage": "homepage"
+		},
+		"NoDefaultBookmarks": true,
+		"OverrideFirstRunPage": "",
+		"SearchEngines": {
+			"Default": "ddg@search.mozilla.org"
+		},
+		"SearchSuggestEnabled": true,
+		"UserMessaging": {
+			"SkipOnboarding": true
+		}
+	}
+}
+EOF
