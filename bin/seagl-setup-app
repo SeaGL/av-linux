@@ -9,11 +9,14 @@ if [ $(id -u) == 0 ]; then
 fi
 
 function start_and_link_app() {
-        desktop_file=$1.desktop
+	desktop_file=$1.desktop
+	$desktop_file_full=/usr/share/applications/$desktop_file
 
-        sudo ln -s /usr/share/applications/$desktop_file /etc/xdg/autostart
+	if ! test -e $desktop_file_full; then
+		sudo ln -s $desktop_file_full /etc/xdg/autostart
+	fi
 
-        nohup gio launch $desktop_file >/dev/null 2>&1
+	nohup gio launch $desktop_file_full >/dev/null 2>&1
 }
 
 if [ $1 == obs ]; then
