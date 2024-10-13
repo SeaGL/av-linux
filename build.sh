@@ -17,6 +17,7 @@ flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
 
 # General system packages
 rpm-ostree install gnome-browser-connector jq
+rpm-ostree remove gnome-tour
 # Streaming machine packages
 rpm-ostree install obs-studio mpv yt-dlp zenity
 # Presentation machine packages
