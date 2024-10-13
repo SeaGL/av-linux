@@ -24,7 +24,9 @@ fi
 
 hostnamectl hostname seagl-$(tr '[:upper:]' '[:lower:]' < /var/lib/seagl/room-id)-$(cat /var/lib/seagl/laptop-type)
 
-# TODO retrieve config, etc.
+seagl-refresh-config
+
+# TODO set up OBS and Nextcloud, then (auto)launch them
 
 # For some reason, Toolbx wants to create a Fedora 38 container??
 # TODO confirm this is an upstream bug, then report

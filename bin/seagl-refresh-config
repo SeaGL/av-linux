@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if ! [ $(id -u) == 0 ]; then
+	exec sudo $0 "$@"
+fi
+
+# TODO figure out how to script age's password input, then cache the password here
+curl https://seagl.org/av-linux/production.json.age > /var/lib/seagl/config-data.json.age
+echo Decrypting laptop configuration data - you will be prompted for the password
+while ! age --decrypt /var/lib/seagl/config-data.json.age > /var/lib/seagl/config-data.json; do
+	true
+done
+
+if test -e /var/lib/seagl/config-data.json; then
+	diff --color=always /var/lib/seagl/config-data.json{,.new}
+else
+	echo | diff --color=always - /var/lib/seagl/config-data.json.new
+fi
+
+mv /var/lib/seagl/config-data.json{.new,}
+rm /var/lib/seagl/config-data.json.age
