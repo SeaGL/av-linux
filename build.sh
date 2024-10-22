@@ -95,6 +95,8 @@ welcome-dialog-last-shown-version='$(rpm -qv gnome-shell | cut -d- -f3)'
 EOF
 
 dconf update
+# TODO figure out why this hack is needed
+systemctl enable seagl-dconf-update-hack.service
 
 # Put some useful stuff in bash history so ^R muscle memory works (AJ relies on this a lot)
 cat > /etc/skel/.bash_history <<EOF
