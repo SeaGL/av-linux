@@ -1,0 +1,15 @@
+[Unit]
+# TODO figure out why `dconf update` in build.sh isn't enough
+Description=Update dconf database (hack)
+DefaultDependencies=no
+# Consult bootup(7) for more info about this and basic.target
+After=sysinit.target
+Before=seagl-reset-users.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/dconf update
+
+[Install]
+WantedBy=basic.target
