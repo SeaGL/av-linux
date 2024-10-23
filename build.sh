@@ -27,7 +27,8 @@ rpm-ostree install libreoffice nextcloud-client nextcloud-client-nautilus
 systemctl set-default graphical.target
 systemd-firstboot --locale="en_US.UTF-8" --timezone=America/Los_Angeles --hostname seagl-unconfigured --root-password=password
 
-sed -i 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=seagloperator/' /etc/gdm/custom.conf
+# TODO reenable - temporary hack for ublue rebase
+#sed -i 's/\[daemon\]/[daemon]\nAutomaticLoginEnable=true\nAutomaticLogin=seagloperator/' /etc/gdm/custom.conf
 systemctl enable seagl-reset-users.service
 
 ln -s /usr/share/applications/room-setup.desktop /etc/xdg/autostart
