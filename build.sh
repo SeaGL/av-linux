@@ -24,7 +24,7 @@ flatpak install --system com.obsproject.Studio # This MUST be from Flathub and n
 rpm-ostree install libreoffice nextcloud-client nextcloud-client-nautilus
 
 systemctl enable seagl-init-system-flatpak.service
-mv /var/lib/flatpak /usr/lib/seagl-flatpak # Hack to satisfy the linter: --system
+mv /var/lib/flatpak /usr/lib/seagl-flatpak
 
 ### Configure system
 
