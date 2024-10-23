@@ -13,3 +13,6 @@ for i in bin/* sbin/*; do
 	echo 'Checking that `'"$i"'` contains `set -euo pipefail`.'
 	grep -q 'set -euo pipefail' $i
 done
+
+echo 'Checking that all `jq` invocations pass `-r`.' # Otherwise results tend to be quoted, which is almost never what you want in this project.
+( ! grep -rn 'jq ' | grep -ve rpm-ostree -e 'jq -r')
