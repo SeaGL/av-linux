@@ -19,7 +19,7 @@ flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
 rpm-ostree install jq age
 # Streaming machine packages
 rpm-ostree install mpv yt-dlp zenity
-flatpak install com.obsproject.Studio # This MUST be from Flathub and not Fedora repos to have OpenH264 support
+flatpak install --system com.obsproject.Studio # This MUST be from Flathub and not Fedora repos to have OpenH264 support
 # Presentation machine packages
 rpm-ostree install libreoffice nextcloud-client nextcloud-client-nautilus
 
