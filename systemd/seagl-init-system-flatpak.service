@@ -1,0 +1,15 @@
+[Unit]
+Description=Initialize system Flatpak install from vendored copy
+DefaultDependencies=no
+# Consult bootup(7) for more info about this and basic.target
+After=sysinit.target
+ConditionPathNotExists=/var/lib/flatpak
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# TODO should we just... unconditionally rsync perhaps?
+ExecStart=/usr/bin/cp -a /usr/lib/seagl-flatpak /var/lib/flatpak
+
+[Install]
+WantedBy=multi-user.target
