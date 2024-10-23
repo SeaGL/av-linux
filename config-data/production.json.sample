@@ -1,10 +1,25 @@
 {
-	"_comment": "The authoritative copy of the production version of this file is the one stored in this repo.",
+	"_comment": "The authoritative copy of the production version of this file is the one checked into SeaGL/av-linux on GitHub.",
 	"rtmpKeys": {
-		"Lyceum": "XXX",
-		"332": "XXX",
-		"334": "XXX",
-		"340": "XXX"
+		"ajDevelopment": {
+			"keysetDescription": "AJ development test keys",
+			"Lyceum": "XXX"
+		},
+		"onsiteTest": {
+			"keysetDescription": "On-site Thursday test",
+			"Lyceum": "XXX"
+		},
+		"remoteSpeakerAvTest": {
+			"keysetDescription": "Remote speaker Thursday night A/V test",
+			"Lyceum": "XXX"
+		},
+		"production": {
+			"keysetDescription": "Production YouTube streams - both days",
+			"Lyceum": "XXX",
+			"332": "XXX",
+			"334": "XXX",
+			"340": "XXX"
+		}
 	},
 	"matrixCredentials": {
 		"Lyceum": {
@@ -23,7 +38,7 @@
 			"user": "XXX",
 			"password": "XXX"
 		}
-	}
+	},
 	"nextcloudAppPassword": "XXX",
 	"avTestResultsSheetURL": "XXX"
 }
