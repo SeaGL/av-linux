@@ -41,11 +41,6 @@ else
 	sudo -u $SUDO_USER seagl-setup-app nextcloud
 fi
 
-# We leave expensive downloads for last, and prioritize by usefulness
-
-# Flatpaks cannot be installed in the container image because they go to /var
-flatpak install --noninteractive --system im.riot.Riot
-
 # For some reason, Toolbx wants to create a Fedora 38 container??
 # TODO confirm this is an upstream bug, then report
 yes | sudo -u $SUDO_USER toolbox create --release f40
