@@ -18,7 +18,7 @@ flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
 # General system packages
 rpm-ostree install jq age seahorse gedit
 # Streaming machine packages
-rpm-ostree install mpv yt-dlp zenity
+rpm-ostree install mpv yt-dlp zenity rclone
 flatpak install --noninteractive --system com.obsproject.Studio # This MUST be from Flathub and not Fedora repos to have OpenH264 support
 flatpak install --noninteractive --system im.riot.Riot
 # Presentation machine packages
