@@ -37,6 +37,10 @@ elif [ "$arg" == nextcloud ]; then
 elif [ "$arg" == firefox ]; then
 	sudo sed -i "s;AV_TEST_RESULTS_PLACEHOLDER;$(get_config_value .avTestResultsSheetURL);" /etc/firefox/policies/policies.json
 	start_and_link_app org.mozilla.firefox
+elif [ "$arg" == rclone ]; then
+	rclone config create seagl_s3 s3 provider=AWS access_key_id=$(get_config_value .awsCreds.accessKey) secret_access_key=$(get_config_value .awsCreds.secretAccessKey) env_auth=false region=us-west-2 endpoint= location_constraint=us-west-2 acl=private
+	# Do the exact same thing but with sudo, in case someone runs rclone from a root shell by mistake
+	sudo rclone config create seagl_s3 s3 provider=AWS access_key_id=$(get_config_value .awsCreds.accessKey) secret_access_key=$(get_config_value .awsCreds.secretAccessKey) env_auth=false region=us-west-2 endpoint= location_constraint=us-west-2 acl=private
 else
-	echo fatal: application to be set up must be one of obs, nextcloud, firefox, but received $arg
+	echo fatal: application to be set up must be one of obs, nextcloud, firefox, or rclone, but received $arg
 fi
