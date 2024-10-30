@@ -40,5 +40,9 @@
 		}
 	},
 	"nextcloudAppPassword": "XXX",
-	"avTestResultsSheetURL": "XXX"
+	"avTestResultsSheetURL": "XXX",
+	"awsCreds": {
+		"accessKey": "XXX",
+		"secretAccessKey": "XXX"
+	}
 }
