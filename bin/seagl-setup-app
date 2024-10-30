@@ -19,9 +19,7 @@ function start_and_link_app() {
 		desktop_file_full=/var/lib/flatpak/exports/share/applications/$desktop_file
 	fi
 
-	if ! test -e /etc/xdg/autostart/$desktop_file; then
-		sudo ln -s $desktop_file_full /etc/xdg/autostart
-	fi
+	sudo ln -sf $desktop_file_full /etc/xdg/autostart
 
 	nohup gio launch $desktop_file_full >/dev/null 2>&1
 }
