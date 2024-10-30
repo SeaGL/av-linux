@@ -33,7 +33,7 @@ if [ "$arg" == obs ]; then
 	start_and_link_app com.obsproject.Studio
 elif [ "$arg" == nextcloud ]; then
 	nextcloud --userid 2024laptops --apppassword "$(get_config_value .nextcloudAppPassword)" --isvfsenabled 0 --serverurl 'https://cloud.seagl.org/'  --localdirpath /home/seagloperator/Nextcloud
-	#start_and_link_app com.nextcloud.desktopclient.nextcloud
+	start_and_link_app com.nextcloud.desktopclient.nextcloud
 elif [ "$arg" == firefox ]; then
 	sudo sed -i "s;AV_TEST_RESULTS_PLACEHOLDER;$(get_config_value .avTestResultsSheetURL);" /etc/firefox/policies/policies.json
 	start_and_link_app org.mozilla.firefox
