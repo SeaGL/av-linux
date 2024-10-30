@@ -24,14 +24,18 @@ function start_and_link_app() {
 	nohup gio launch $desktop_file_full >/dev/null 2>&1
 }
 
+function get_config_value() {
+	jq -r $1 < /var/lib/seagl/config-data.json
+}
+
 if [ "$arg" == obs ]; then
 	# TODO provision RTMP keys
 	start_and_link_app com.obsproject.Studio
 elif [ "$arg" == nextcloud ]; then
-	nextcloud --userid 2024laptops --apppassword "$(jq -r .nextcloudAppPassword < /var/lib/seagl/config-data.json)" --isvfsenabled 0 --serverurl 'https://cloud.seagl.org/'  --localdirpath /home/seagloperator/Nextcloud
+	nextcloud --userid 2024laptops --apppassword "$(get_config_value .nextcloudAppPassword)" --isvfsenabled 0 --serverurl 'https://cloud.seagl.org/'  --localdirpath /home/seagloperator/Nextcloud
 	#start_and_link_app com.nextcloud.desktopclient.nextcloud
 elif [ "$arg" == firefox ]; then
-	sudo sed -i "s;AV_TEST_RESULTS_PLACEHOLDER;$(jq -r .avTestResultsSheetURL < /var/lib/seagl/config-data.json);" /etc/firefox/policies/policies.json
+	sudo sed -i "s;AV_TEST_RESULTS_PLACEHOLDER;$(get_config_value .avTestResultsSheetURL);" /etc/firefox/policies/policies.json
 	start_and_link_app org.mozilla.firefox
 else
 	echo fatal: application to be set up must be one of obs, nextcloud, firefox, but received $arg
