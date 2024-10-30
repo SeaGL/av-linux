@@ -30,7 +30,7 @@ hostnamectl hostname seagl-$(tr '[:upper:]' '[:lower:]' < /var/lib/seagl/room-id
 
 seagl-refresh-config
 
-# TODO set up OBS and Nextcloud, then (auto)launch them
+# TODO set up OBS, then (auto)launch it
 
 if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	# TODO add SeaGL-specific scripts into here
