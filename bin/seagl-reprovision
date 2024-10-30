@@ -9,5 +9,5 @@ if ! zenity --question --icon=dialog-warning --text='Are you sure you wish to re
 fi
 
 sudo rm -rf /var/lib/seagl
-rsync -rlv --delete /usr/etc/xdg /etc/xdg
+rsync -rlv --delete /usr/etc/xdg/ /etc/xdg/
 sudo systemctl soft-reboot
