@@ -3,7 +3,7 @@
 		"Bookmarks": [
 			{
 				"Title": "Attend Portal",
-				"URL": "https://attend.seagl.org/",
+				"URL": "https://attend.seagl.org/?__ATTEND_PORTAL_CREDENTIALS__=t",
 				"Placement": "toolbar"
 			},
 			{
