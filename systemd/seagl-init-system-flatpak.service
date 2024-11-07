@@ -8,8 +8,7 @@ ConditionPathNotExists=/var/lib/flatpak
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-# TODO should we just... unconditionally rsync perhaps?
-ExecStart=/usr/bin/cp -a /usr/lib/seagl-flatpak /var/lib/flatpak
+ExecStart=/bin/bash -c "rm -rf /var/lib/flatpak && cp -a /usr/lib/seagl-flatpak /var/lib/flatpak"
 
 [Install]
 WantedBy=multi-user.target
