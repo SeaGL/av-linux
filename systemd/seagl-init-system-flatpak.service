@@ -3,7 +3,6 @@ Description=Initialize system Flatpak install from vendored copy
 DefaultDependencies=no
 # Consult bootup(7) for more info about this and basic.target
 After=sysinit.target
-ConditionPathNotExists=/var/lib/flatpak
 
 [Service]
 Type=oneshot
