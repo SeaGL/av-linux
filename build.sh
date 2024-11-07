@@ -21,6 +21,7 @@ rpm-ostree install jq age seahorse gedit
 rpm-ostree install mpv yt-dlp zenity rclone
 flatpak install --noninteractive --system com.obsproject.Studio # This MUST be from Flathub and not Fedora repos to have OpenH264 support
 flatpak install --noninteractive --system im.riot.Riot
+flatpak install --noninteractive --system org.pulseaudio.pavucontrol
 # Presentation machine packages
 rpm-ostree install libreoffice nextcloud-client nextcloud-client-nautilus
 
