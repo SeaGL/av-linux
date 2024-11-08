@@ -12,6 +12,11 @@
 				"Placement": "toolbar"
 			},
 			{
+				"Title": "Remote speaker talk URLs",
+				"URL": "__REMOTE_SPEAKER_TALK_URLS_PLACEHOLDER__",
+				"Placement": "toolbar"
+			},
+			{
 				"Title": "Stream Manager manual",
 				"URL": "https://cloud.seagl.org/index.php/s/4a7nBNBs2jD7oGX",
 				"Placement": "toolbar"

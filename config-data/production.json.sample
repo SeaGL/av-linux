@@ -41,6 +41,7 @@
 	},
 	"nextcloudAppPassword": "XXX",
 	"avTestResultsSheetURL": "XXX",
+	"remoteSpeakerJitsiURLs": "XXX",
 	"awsCreds": {
 		"accessKey": "XXX",
 		"secretAccessKey": "XXX"
