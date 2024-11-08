@@ -64,7 +64,7 @@ COPY systemd/* /usr/lib/systemd/system/
 COPY desktops/* /usr/share/applications/
 COPY misc/seagl-state-dir.conf /usr/lib/tmpfiles.d/
 COPY icon/seagl-logo-icon.svg /usr/share/icons/hicolor/scalable/places/
-COPY etc/firefox/ /etc/
+COPY etc/ /etc/
 # TODO lol should this just use the above COPY? I didn't because then it makes the dir hidden in the development repo filesystem...
 COPY home-var-app/ /etc/skel/.var/app/
 
