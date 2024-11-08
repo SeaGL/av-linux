@@ -10,6 +10,11 @@
 				"Title": "A/V test results",
 				"URL": "AV_TEST_RESULTS_PLACEHOLDER",
 				"Placement": "toolbar"
+			},
+			{
+				"Title": "Stream Manager manual",
+				"URL": "https://cloud.seagl.org/index.php/s/4a7nBNBs2jD7oGX",
+				"Placement": "toolbar"
 			}
 		],
 		"DisableFirefoxAccounts": true,
