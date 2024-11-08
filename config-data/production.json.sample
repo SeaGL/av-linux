@@ -44,5 +44,6 @@
 	"awsCreds": {
 		"accessKey": "XXX",
 		"secretAccessKey": "XXX"
-	}
+	},
+	"nextcloudUserPassword": "XXX"
 }
