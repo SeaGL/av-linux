@@ -10,5 +10,13 @@ fi
 
 sudo rm -rf /var/lib/seagl
 sudo rm -rf /var/lib/flatpak
+
+function copy_from_usr() {
+	cp /usr/etc/$1 /etc/$1
+}
+
 sudo rsync -rlv --delete /usr/etc/xdg/ /etc/xdg/
+cp /usr/etc/firefox/policies/policies.json /etc/firefox/policies/policies.json
+copy_from_usr firefox/policies/policies.json
+
 sudo systemctl reboot
