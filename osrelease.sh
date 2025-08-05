@@ -14,7 +14,7 @@ SOURCE_IMAGE="silverblue"
 FEDORA_MAJOR_VERSION="40"
 BASE_IMAGE_NAME="${SOURCE_IMAGE^}"
 
-IMAGE_PRETTY_NAME="SeaGL A/V Linux"
+IMAGE_PRETTY_NAME="SeaGL Aviary Linux"
 IMAGE_LIKE="fedora"
 HOME_URL="https://github.com/SeaGL/av-linux"
 DOCUMENTATION_URL="https://github.com/SeaGL/av-linux/blob/main/README.md"
