@@ -7,4 +7,5 @@ if [ $(id -u) == 0 ]; then
 	exec sudo -u seagloperator $0 "$@"
 fi
 
-zenity --info --text="<span font=\"64\">I am configured for <span foreground=\"blue\">$(cat /var/lib/seagl/laptop-type)</span> in <span foreground=\"red\">$(hostnamectl location)</span></span>." --width=1300
+# We background this so it is async, which means that Birdhouse doesn't need to disable timeouts or anything like that
+zenity --info --text="<span font=\"64\">I am configured for <span foreground=\"blue\">$(cat /var/lib/seagl/laptop-type)</span> in <span foreground=\"red\">$(hostnamectl location)</span></span>." --width=1300 &
