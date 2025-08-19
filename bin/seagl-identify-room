@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+set -x
+
+if [ $(id -u) == 0 ]; then
+	exec sudo -u seagloperator $0 "$@"
+fi
+
+zenity --info --text="<span font=\"64\">I am configured for <span foreground=\"blue\">$(cat /var/lib/seagl/laptop-type)</span> in <span foreground=\"red\">$(hostnamectl location)</span></span>." --width=1300
