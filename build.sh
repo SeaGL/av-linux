@@ -13,8 +13,6 @@ RELEASE="$(rpm -E %fedora)"
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-flatpak remote-add --system flathub --from /tmp/flathub.flatpakrepo
-
 # General system packages
 rpm-ostree install jq age seahorse gedit
 # Streaming machine packages
