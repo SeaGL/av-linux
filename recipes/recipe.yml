@@ -33,6 +33,8 @@ modules:
       - zz1-suppress-autosuspend.gschema.override
   - type: files
     files:
+      - source: usr
+        destination: /usr
       - source: etc
         destination: /etc
       # TODO lol should this just use the above directory? I didn't because then it makes the dir hidden in the development repo filesystem...
