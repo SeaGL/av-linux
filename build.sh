@@ -27,22 +27,6 @@ systemctl enable seagl-reset-users.service
 
 ln -s /usr/share/applications/room-setup.desktop /etc/xdg/autostart
 
-cat > /etc/sudoers.d/10-unconditionally-grant-sudoers <<EOF
-# Don't bother laptop users with needing to know passwords:
-# rooms with laptops are physically secured by UW staff when
-# unattended at the venue.
-ALL            ALL = (ALL) NOPASSWD: ALL
-EOF
-
-cat > /etc/polkit-1/rules.d/00-allow-everything.rules <<EOF
-// Don't bother laptop users with needing to know passwords:
-// rooms with laptops are physically secured by UW staff when
-// unattended at the venue.
-polkit.addRule(function(action, subject) {
-    return polkit.Result.YES;
-});
-EOF
-
 # https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/desktop_migration_and_administration_guide/extensions-enable
 mkdir -p /usr/share/gnome-shell/extensions/{appmenu-is-back@fthx,grand-theft-focus@zalckos.github.com}
 cd /usr/share/gnome-shell/extensions/appmenu-is-back@fthx

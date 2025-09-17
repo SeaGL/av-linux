@@ -1,0 +1,6 @@
+// Don't bother laptop users with needing to know passwords:
+// rooms with laptops are physically secured by UW staff when
+// unattended at the venue.
+polkit.addRule(function(action, subject) {
+    return polkit.Result.YES;
+});
