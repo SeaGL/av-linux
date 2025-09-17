@@ -31,6 +31,10 @@ modules:
       - zz1-disable-screen-lock.gschema.override
       - zz1-set-gnome-shell-dock.override
       - zz1-suppress-autosuspend.gschema.override
+  - type: files
+    files:
+      - source: etc
+        destination: /etc
   - type: containerfile
     containerfiles:
       - main
