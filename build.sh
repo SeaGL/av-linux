@@ -8,22 +8,11 @@ RELEASE="$(rpm -E %fedora)"
 
 ### Install packages
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# General system packages
-rpm-ostree install jq age seahorse gedit
-# Streaming machine packages
-rpm-ostree install mpv yt-dlp zenity rclone fuse-devel cheese
 flatpak install --noninteractive --system com.obsproject.Studio # This MUST be from Flathub and not Fedora repos to have OpenH264 support
 flatpak install --noninteractive --system com.obsproject.Studio.Plugin.SceneSwitcher
 flatpak install --noninteractive --system com.obsproject.Studio.Plugin.SourceRecord
 flatpak install --noninteractive --system im.riot.Riot
 flatpak install --noninteractive --system org.pulseaudio.pavucontrol
-# Presentation machine packages
-rpm-ostree install libreoffice nextcloud-client nextcloud-client-nautilus
 
 systemctl enable seagl-init-system-flatpak.service
 mv /var/lib/flatpak /usr/lib/seagl-flatpak

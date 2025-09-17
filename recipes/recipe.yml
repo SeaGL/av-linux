@@ -7,6 +7,24 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 42
 
 modules:
+  - type: rpm-ostree
+    install:
+      # General system packages
+      - jq
+      - age
+      - seahorse
+      - gedit
+      # Streaming machine packages
+      - mpv
+      - yt-dlp
+      - zenity
+      - rclone
+      - fuse-devel
+      - cheese
+      # Presentation machine packages
+      - libreoffice
+      - nextcloud-client
+      - nextcloud-client-nautilus
   - type: containerfile
     containerfiles:
       - main
