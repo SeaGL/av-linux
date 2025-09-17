@@ -43,23 +43,6 @@ polkit.addRule(function(action, subject) {
 });
 EOF
 
-# https://askubuntu.com/q/1037553/49090, https://askubuntu.com/q/1014965/49090, dconf(7)
-cat > /etc/dconf/db/local.d/00-suppress-autosuspend <<EOF
-[org/gnome/settings-daemon/plugins/power]
-sleep-inactive-ac-type='nothing'
-
-[org/gnome/desktop/session]
-idle-delay=300
-EOF
-
-cat > /etc/dconf/db/local.d/00-disable-screen-lock <<EOF
-[org/gnome/desktop/screensaver]
-lock-enabled=false
-
-[org/gnome/desktop/lockdown]
-disable-lock-screen=true
-EOF
-
 # https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/desktop_migration_and_administration_guide/extensions-enable
 mkdir -p /usr/share/gnome-shell/extensions/{appmenu-is-back@fthx,grand-theft-focus@zalckos.github.com}
 cd /usr/share/gnome-shell/extensions/appmenu-is-back@fthx
@@ -70,18 +53,6 @@ chmod 644 /usr/share/gnome-shell/extensions/*/*
 cat > /etc/dconf/db/local.d/00-gnome-shell-extensions <<EOF
 [org/gnome/shell]
 enabled-extensions=['grand-theft-focus@zalckos.github.com', 'appmenu-is-back@fthx', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']
-EOF
-
-cat > /etc/dconf/db/local.d/00-disable-gnome-shell-animations <<EOF
-[org/gnome/desktop/interface]
-enable-animations=false
-EOF
-
-cat > /etc/dconf/db/local.d/00-set-gnome-shell-dock <<EOF
-[org/gnome/shell]
-# This is for presentation laptops. Streaming laptops override this at runtime during room setup.
-# TODO add SeaGL-specific scripts into here
-favorite-apps=['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'org.libreoffice.LibreOffice.impress.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop']
 EOF
 
 cat > /etc/dconf/db/local.d/00-disable-gnome-tour <<EOF

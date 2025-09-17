@@ -25,6 +25,12 @@ modules:
       - libreoffice
       - nextcloud-client
       - nextcloud-client-nautilus
+  - type: gschema-overrides
+    include:
+      - zz1-disable-gnome-shell-animations.gschema.override
+      - zz1-disable-screen-lock.gschema.override
+      - zz1-set-gnome-shell-dock.override
+      - zz1-suppress-autosuspend.gschema.override
   - type: containerfile
     containerfiles:
       - main
