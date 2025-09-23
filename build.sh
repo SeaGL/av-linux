@@ -27,11 +27,6 @@ systemctl enable seagl-reset-users.service
 
 ln -s /usr/share/applications/room-setup.desktop /etc/xdg/autostart
 
-cat > /etc/dconf/db/local.d/00-gnome-shell-extensions <<EOF
-[org/gnome/shell]
-enabled-extensions=['grand-theft-focus@zalckos.github.com', 'appmenu-is-back@fthx', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']
-EOF
-
 cat > /etc/dconf/db/local.d/00-disable-gnome-tour <<EOF
 [org/gnome/shell]
 welcome-dialog-last-shown-version='$(rpm -qv gnome-shell | cut -d- -f3)'
