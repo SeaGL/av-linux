@@ -25,6 +25,10 @@ modules:
       - libreoffice
       - nextcloud-client
       - nextcloud-client-nautilus
+  - type: gnome-extensions
+    install:
+      - 6433 # App menu is back
+      - 5410 # Grand Theft Focus
   - type: gschema-overrides
     include:
       - zz1-disable-gnome-shell-animations.gschema.override
