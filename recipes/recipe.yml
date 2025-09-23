@@ -29,7 +29,7 @@ modules:
     include:
       - zz1-disable-gnome-shell-animations.gschema.override
       - zz1-disable-screen-lock.gschema.override
-      - zz1-set-gnome-shell-dock.override
+      - zz1-set-gnome-shell-dock.gschema.override
       - zz1-suppress-autosuspend.gschema.override
   - type: files
     files:
