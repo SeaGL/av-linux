@@ -4,8 +4,6 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
-/tmp/osrelease.sh
-
 ### Install packages
 
 flatpak install --noninteractive --system com.obsproject.Studio # This MUST be from Flathub and not Fedora repos to have OpenH264 support
