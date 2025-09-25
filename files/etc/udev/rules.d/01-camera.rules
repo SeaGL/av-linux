@@ -1,0 +1,2 @@
+KERNEL=="video[0-9]*", SUBSYSTEM=="video4linux", SUBSYSTEMS=="usb", ATTR{index}=="0", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="085f", SYMLINK+="webcam"
+KERNEL=="video[0-9]*", SUBSYSTEM=="video4linux", SUBSYSTEMS=="usb", ATTR{index}=="0", ATTRS{idVendor}=="3842", ATTRS{idProduct}=="310a", SYMLINK+="capture"
