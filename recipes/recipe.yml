@@ -45,6 +45,24 @@ modules:
       # TODO lol should this just use the above directory? I didn't because then it makes the dir hidden in the development repo filesystem...
       - source: home-var-app
         destination: /etc/skel/.var/app
+  - type: os-release
+    properties:
+      ID: seaglav
+      ID_LIKE: fedora
+      NAME: SeaGL Aviary Linux
+      PRETTY_NAME: SeaGL Avian Linux 2025 (FROM Fedora Silverblue 42)
+      CODE_NAME: '2025'
+
+      IMAGE_VENDOR: SeaGL
+      IMAGE_NAME: av-linux
+      IMAGE_LIKE: fedora
+
+      HOME_URL: https://github.com/SeaGL/av-linux
+      DOCUMENTATION_URL: https://github.com/SeaGL/av-linux/blob/main/README.md
+      SUPPORT_URL: https://seagl.org/chat
+      BUG_SUPPORT_URL: https://github.com/SeaGL/av-linux/issues
+      LOGO_ICON: seagl-logo-icon
+      # TODO LOGO_COLOR
   - type: containerfile
     containerfiles:
       - main

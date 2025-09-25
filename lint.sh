@@ -15,4 +15,4 @@ for i in bin/* sbin/*; do
 done
 
 echo 'Checking that all `jq` invocations pass `-r`.' # Otherwise results tend to be quoted, which is almost never what you want in this project.
-( ! grep -rn 'jq ' | grep -ve rpm-ostree -e 'jq -r')
+( ! grep --exclude-dir=.git -rn 'jq ' | grep -ve rpm-ostree -e 'jq -r')

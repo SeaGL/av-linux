@@ -44,7 +44,6 @@ ARG FEDORA_MAJOR_VERSION=${FEDORA_MAJOR_VERSION}
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
 COPY build.sh /tmp/build.sh
-COPY osrelease.sh /tmp/osrelease.sh
 
 COPY bin/* /usr/bin/
 COPY sbin/* /usr/sbin/
