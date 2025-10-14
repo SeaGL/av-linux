@@ -20,6 +20,11 @@
 				"Title": "Stream Manager manual",
 				"URL": "https://cloud.seagl.org/index.php/s/4a7nBNBs2jD7oGX",
 				"Placement": "toolbar"
+			},
+			{
+				"Title": "Feedback form",
+				"URL": "https://seagl.org/feedback",
+				"Placement": "toolbar"
 			}
 		],
 		"DisableFirefoxAccounts": true,
