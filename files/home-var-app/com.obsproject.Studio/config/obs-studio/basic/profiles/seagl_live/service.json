@@ -1,0 +1,1 @@
+{"type":"rtmp_custom","settings":{"server":"rtmp://localhost:1935/live","use_auth":false,"bwtest":false,"key":""}}
