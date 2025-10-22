@@ -47,5 +47,6 @@
 		"secretAccessKey": "XXX"
 	},
 	"nextcloudUserPassword": "XXX",
+	"zrokKey": "XXX",
 	"scheduleUrl": "https://pretalx.seagl.org/XXX/schedule/"
 }
