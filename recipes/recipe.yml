@@ -25,6 +25,15 @@ modules:
       - libreoffice
       - nextcloud-client
       - nextcloud-client-nautilus
+  - type: rpm-ostree
+    repos:
+      - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/$basearch
+    keys:
+      - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/$basearch/repodata/repomd.xml.key
+    install:
+      - zrok
+    optfix:
+      - openziti
   - type: gnome-extensions
     install:
       - 6433 # App menu is back
