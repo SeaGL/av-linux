@@ -25,6 +25,11 @@
 				"Title": "Feedback form",
 				"URL": "https://seagl.org/feedback",
 				"Placement": "toolbar"
+			},
+			{
+				"Title": "Schedule",
+				"URL": "__SCHEDULE_URL_PLACEHOLDER__",
+				"Placement": "toolbar"
 			}
 		],
 		"DisableFirefoxAccounts": true,

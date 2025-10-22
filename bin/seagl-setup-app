@@ -43,6 +43,7 @@ elif [ "$arg" == firefox ]; then
 	sudo sed -i "s;AV_TEST_RESULTS_PLACEHOLDER;$(get_config_value .avTestResultsSheetURL);" /etc/firefox/policies/policies.json
 	sudo sed -i "s;__ATTEND_PORTAL_CREDENTIALS__=t;userId=%40$(get_config_value .matrixCredentials.\"$room_id\".user)%3A2024.seagl.org\&password=$(get_config_value .matrixCredentials.\"$room_id\".password);" /etc/firefox/policies/policies.json
 	sudo sed -i "s;__REMOTE_SPEAKER_TALK_URLS_PLACEHOLDER__;$(get_config_value .remoteSpeakerJitsiURLs);" /etc/firefox/policies/policies.json
+	sudo sed -i "s;__SCHEDULE_URL_PLACEHOLDER__;$(get_config_value .scheduleUrl);" /etc/firefox/policies/policies.json
 	start_and_link_app org.mozilla.firefox
 elif [ "$arg" == rclone ]; then
 	rclone config create seagl_s3 s3 provider=AWS access_key_id="$(get_config_value .awsCreds.accessKey)" secret_access_key="$(get_config_value .awsCreds.secretAccessKey)" env_auth=false region=us-west-2 endpoint= location_constraint=us-west-2 acl=private
