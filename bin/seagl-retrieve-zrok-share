@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+die() {
+	echo "$2"
+	exit $1
+}
+
+get_shares() {
+	zrok overview | jq -r '.environments[] | select(.environment.zId == "'$(jq -r .ziti_identity ~/.zrok/environment.json)'") | .shares'
+}
+
+num_shares=$(get_shares | jq -r length)
+if [ $num_shares == 0 ]; then
+	die 1 'no shares found on local system'
+fi
+
+if [ $num_shares != 1 ]; then
+	die $num_shares '>1 share found on local system'
+fi
+
+get_shares | jq -r '.[] | .frontendEndpoint'
