@@ -44,6 +44,7 @@ if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	sudo -u $SUDO_USER seagl-setup-app obs
 	sudo -u $SUDO_USER seagl-setup-app firefox
 	sudo -u $SUDO_USER seagl-setup-app rclone
+	sudo -u $SUDO_USER seagl-setup-app zrok
 else
 	sudo -u $SUDO_USER seagl-setup-app nextcloud
 fi
