@@ -1,0 +1,7 @@
+[OpenZitiRelease]
+name=OpenZiti Release
+baseurl=https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/$basearch
+enabled=1
+gpgcheck=0
+gpgkey=https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/$basearch/repodata/repomd.xml.key
+repo_gpgcheck=1

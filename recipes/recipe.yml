@@ -25,11 +25,17 @@ modules:
       - libreoffice
       - nextcloud-client
       - nextcloud-client-nautilus
+  # This is early and targeted so that we can install Zrok in lower layers,
+  # but not invalidate larger lower layers whenever anything in /etc changes
+  - type: files
+    files:
+      - source: etc/yum.repos.d
+        destination: /etc/yum.repos.d
   - type: rpm-ostree
-    repos:
-      - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/$basearch
+    # repos:
+    #   - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/x86_64/
     keys:
-      - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/$basearch/repodata/repomd.xml.key
+      - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/x86_64/repodata/repomd.xml.key
     install:
       - zrok
     optfix:
