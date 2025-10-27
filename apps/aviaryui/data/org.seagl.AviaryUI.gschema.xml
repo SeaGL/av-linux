@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="aviaryui">
+	<schema id="org.seagl.AviaryUI" path="/org/seagl/AviaryUI/">
+	</schema>
+</schemalist>

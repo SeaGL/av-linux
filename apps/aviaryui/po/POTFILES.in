@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/org.seagl.AviaryUI.desktop.in
+data/org.seagl.AviaryUI.metainfo.xml.in
+data/org.seagl.AviaryUI.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

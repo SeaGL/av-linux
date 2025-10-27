@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=SeaGL Stream Control
+Exec=aviaryui
+Icon=org.seagl.seagl.Source
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true
