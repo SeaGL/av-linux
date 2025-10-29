@@ -56,7 +56,7 @@ modules:
     snippets:
       # XXX figure out why, without --no-bin-links, npm throws EROFS on chmod() on index.js... which SEEMINGLY is actually the creation of a symlink?
       # Except manually creating the symlink works just fine...?
-      - RUN --mount=type=bind,src=apps/birdhoused,dst=/tmp/birdhoused cd /tmp/birdhoused && npm --no-bin-links --prefix=/usr install -g --omit=dev && ln -s /usr/lib/node_modules/birdhouse-client/index.js /usr/bin/birdhoused
+      - RUN --mount=type=bind,src=apps/birdhoused,dst=/tmp/birdhoused cd /tmp/birdhoused && npm --no-bin-links --prefix=/usr install -g --omit=dev && ln -s /usr/lib/node_modules/birdhouse-client/index.js /usr/bin/birdhoused && rm -rf /root/.npm
   - type: files
     files:
       - source: usr
