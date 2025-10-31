@@ -1,0 +1,16 @@
+# Based on https://github.com/openziti/zrok/blob/74eb6fc5f2cd210ccf40e5acb94adb71c2d98bd9/etc/caddy/simple_reverse_proxy.Caddyfile
+{
+	admin off
+}
+
+http:// {
+	bind {{ .ZrokBindAddress }}
+
+	# handle_path is to strip the path that OBS gets, not sure if it matters
+	handle_path /obs/* {
+		reverse_proxy localhost:4455
+	}
+
+	# All non-OBS traffic goes to birdhoused
+	reverse_proxy /* localhost:9000
+}

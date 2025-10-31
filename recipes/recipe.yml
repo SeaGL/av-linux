@@ -21,10 +21,26 @@ modules:
       - rclone
       - fuse-devel
       - cheese
+      - nodejs
       # Presentation machine packages
       - libreoffice
       - nextcloud-client
       - nextcloud-client-nautilus
+  # This is early and targeted so that we can install Zrok in lower layers,
+  # but not invalidate larger lower layers whenever anything in /etc changes
+  - type: files
+    files:
+      - source: etc/yum.repos.d
+        destination: /etc/yum.repos.d
+  - type: rpm-ostree
+    # repos:
+    #   - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/x86_64/
+    keys:
+      - https://packages.openziti.org/zitipax-openziti-rpm-stable/redhat/x86_64/repodata/repomd.xml.key
+    install:
+      - zrok
+    optfix:
+      - openziti
   - type: gnome-extensions
     install:
       - 6433 # App menu is back
@@ -36,6 +52,11 @@ modules:
       - zz1-gnome-shell-extensions.gschema.override
       - zz1-set-gnome-shell-dock.gschema.override
       - zz1-suppress-autosuspend.gschema.override
+  - type: containerfile
+    snippets:
+      # XXX figure out why, without --no-bin-links, npm throws EROFS on chmod() on index.js... which SEEMINGLY is actually the creation of a symlink?
+      # Except manually creating the symlink works just fine...?
+      - RUN --mount=type=bind,src=apps/birdhoused,dst=/tmp/birdhoused cd /tmp/birdhoused && npm --no-bin-links --prefix=/usr install -g --omit=dev && ln -s /usr/lib/node_modules/birdhouse-client/index.js /usr/bin/birdhoused && rm -rf /root/.npm
   - type: files
     files:
       - source: usr

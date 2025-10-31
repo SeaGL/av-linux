@@ -38,21 +38,20 @@ fi
 
 hostnamectl hostname seagl-$(tr '[:upper:]' '[:lower:]' < /var/lib/seagl/room-id)-$(cat /var/lib/seagl/laptop-type)
 
-# TODO set up OBS, then (auto)launch it
-
 if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	# TODO add SeaGL-specific scripts into here
 	sudo -u $SUDO_USER gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
 	sudo -u $SUDO_USER seagl-setup-app obs
 	sudo -u $SUDO_USER seagl-setup-app firefox
 	sudo -u $SUDO_USER seagl-setup-app rclone
+	sudo -u $SUDO_USER seagl-setup-app zrok
 else
 	sudo -u $SUDO_USER seagl-setup-app nextcloud
 fi
 
 # For some reason, Toolbx wants to create a Fedora 38 container??
 # TODO confirm this is an upstream bug, then report
-yes | sudo -u $SUDO_USER toolbox create --assumeyes --release f40
+yes | sudo -u $SUDO_USER toolbox create --assumeyes --release f42
 
 touch /var/lib/seagl/room-setup-complete
 

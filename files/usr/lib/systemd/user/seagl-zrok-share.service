@@ -1,0 +1,7 @@
+[Unit]
+Description=Publish the Birdhouse control port on the internet
+
+[Service]
+Type=exec
+Restart=always
+ExecStart=zrok share public --headless --backend-mode caddy /usr/lib/seagl/zrok.Caddyfile
