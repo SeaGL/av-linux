@@ -8,6 +8,8 @@ if ! zenity --question --icon=dialog-warning --text='Are you sure you wish to re
 	exit 1
 fi
 
+zrok disable
+
 sudo rm -rf /var/lib/seagl
 sudo rm -rf /var/lib/flatpak
 
