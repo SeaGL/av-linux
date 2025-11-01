@@ -8,6 +8,10 @@ if ! [ $(id -u) == 0 ]; then
 	exit 1
 fi
 
+if test -f /home/seagloperator/.zrok/environment.json; then
+	sudo -u seagloperator zrok disable
+fi
+
 # Delete all existing users except root (and firebird?? TODO what is this????)
 grep -ve '^root' -e '^firebird' /etc/passwd | cut -d: -f1 | xargs -n 1 userdel -f -r
 
