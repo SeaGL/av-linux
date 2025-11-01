@@ -55,5 +55,6 @@ elif [ "$arg" == zrok ]; then
 	zrok enable $(get_config_value .zrokKey)
 	systemctl --user enable --now seagl-zrok-share.service
 else
-	echo fatal: application to be set up must be one of obs, nextcloud, firefox, rclone, birdhoused, or zrok, but received $arg
+	echo fatal: application to be set up must be one of obs, nextcloud, firefox, rclone, birdhoused or zrok, but received $arg 1>&2
+	exit 1
 fi
