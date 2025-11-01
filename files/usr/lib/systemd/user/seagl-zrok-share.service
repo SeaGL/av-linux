@@ -1,6 +1,9 @@
 [Unit]
 Description=Publish the Birdhouse control port on the internet
 
+[Install]
+WantedBy=default.target
+
 [Service]
 Type=exec
 Restart=always
