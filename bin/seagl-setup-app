@@ -49,9 +49,11 @@ elif [ "$arg" == rclone ]; then
 	rclone config create seagl_s3 s3 provider=AWS access_key_id="$(get_config_value .awsCreds.accessKey)" secret_access_key="$(get_config_value .awsCreds.secretAccessKey)" env_auth=false region=us-west-2 endpoint= location_constraint=us-west-2 acl=private
 	# Do the exact same thing but with sudo, in case someone runs rclone from a root shell by mistake
 	sudo rclone config create seagl_s3 s3 provider=AWS access_key_id="$(get_config_value .awsCreds.accessKey)" secret_access_key="$(get_config_value .awsCreds.secretAccessKey)" env_auth=false region=us-west-2 endpoint= location_constraint=us-west-2 acl=private
+elif [ "$arg" == birdhoused ]; then
+	systemctl --user enable --now seagl-birdhoused.service
 elif [ "$arg" == zrok ]; then
 	zrok enable $(get_config_value .zrokKey)
 	systemctl --user enable --now seagl-zrok-share.service
 else
-	echo fatal: application to be set up must be one of obs, nextcloud, firefox, rclone, or zrok, but received $arg
+	echo fatal: application to be set up must be one of obs, nextcloud, firefox, rclone, birdhoused, or zrok, but received $arg
 fi

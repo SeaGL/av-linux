@@ -1,0 +1,11 @@
+[Unit]
+Description=Birdhouse control daemon
+
+[Service]
+Type=exec
+Restart=always
+ExecStart=/usr/bin/birdhoused
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=default.target
