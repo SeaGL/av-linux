@@ -9,6 +9,9 @@
 				},
 				"isProduction": true
 			},
+			"aviaryui": {
+				"contact_instructions": "XXX"
+			},
 			"awsCreds": {
 				"accessKey": "XXX",
 				"secretAccessKey": "XXX"
