@@ -2,6 +2,13 @@
 	"_comment": "The authoritative copy of the production version of this file is the one checked into SeaGL/av-linux on GitHub.",
 	"configSets": {
 		"GLOBAL_INHERIT": {
+			"birdhouse": {
+				"centrifugeUrl": "XXX",
+				"centrifugeOpts": {
+					"token": "XXX"
+				},
+				"isProduction": true
+			},
 			"awsCreds": {
 				"accessKey": "XXX",
 				"secretAccessKey": "XXX"
