@@ -26,7 +26,7 @@ if ! test -f /var/lib/seagl/configset-id; then
 fi
 
 if ! test -f /var/lib/seagl/room-id; then
-	zenity --list --text='Which room is this?' --column=Room Lyceum 332 334 340 > /var/lib/seagl/room-id
+	zenity --list --text='Which room is this?' --column=Room $(jq -r '.configSets.'"$(cat /var/lib/seagl/configset-id)"' | keys[] | select(. != "_meta")' < /var/lib/seagl/config-data.json.unrendered | sort) > /var/lib/seagl/room-id
 fi
 
 # XXX should we strip _ prefixed keys? _meta, mostly
