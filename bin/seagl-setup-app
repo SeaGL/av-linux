@@ -28,11 +28,8 @@ function get_config_value() {
 	jq -r $1 < /var/lib/seagl/config-data.json
 }
 
-room_id="$(cat /var/lib/seagl/room-id)"
-
 if [ "$arg" == obs ]; then
-	keyset=$(cat /var/lib/seagl/rtmp-keyset)
-	rtmp_key=$(get_config_value .rtmpKeys.$keyset.\"$room_id\")
+	rtmp_key=$(get_config_value .youtubeRtmpKey)
 	sed -i "s/__YOUTUBE_STREAM_KEY__/$rtmp_key/" ~/.var/app/com.obsproject.Studio/config/obs-studio/basic/profiles/Untitled/service.json
 	start_and_link_app com.obsproject.Studio
 elif [ "$arg" == nextcloud ]; then
@@ -41,7 +38,7 @@ elif [ "$arg" == nextcloud ]; then
 	start_and_link_app com.nextcloud.desktopclient.nextcloud
 elif [ "$arg" == firefox ]; then
 	sudo sed -i "s;AV_TEST_RESULTS_PLACEHOLDER;$(get_config_value .avTestResultsSheetURL);" /etc/firefox/policies/policies.json
-	sudo sed -i "s;__ATTEND_PORTAL_CREDENTIALS__=t;userId=%40$(get_config_value .matrixCredentials.\"$room_id\".user)%3A2024.seagl.org\&password=$(get_config_value .matrixCredentials.\"$room_id\".password);" /etc/firefox/policies/policies.json
+	sudo sed -i "s;__ATTEND_PORTAL_CREDENTIALS__=t;userId=%40$(get_config_value .matrixCredentials.user)%3A2024.seagl.org\&password=$(get_config_value .matrixCredentials.password);" /etc/firefox/policies/policies.json
 	sudo sed -i "s;__REMOTE_SPEAKER_TALK_URLS_PLACEHOLDER__;$(get_config_value .remoteSpeakerJitsiURLs);" /etc/firefox/policies/policies.json
 	sudo sed -i "s;__SCHEDULE_URL_PLACEHOLDER__;$(get_config_value .scheduleUrl);" /etc/firefox/policies/policies.json
 	start_and_link_app org.mozilla.firefox
