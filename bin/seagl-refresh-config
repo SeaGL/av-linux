@@ -21,7 +21,7 @@ done
 # TODO fallback description if one is not provided
 if ! test -f /var/lib/seagl/configset-id; then
 	IFS=:
-	zenity --list --text 'Which configset should we use?' --column=ID --column=Description $(jq -r '.configSets | to_entries[] | select(.key != "GLOBAL_INHERIT") | .key + ":" + .value._meta.description' < /var/lib/seagl/config-data.json.unrendered | tr '\n' ':' > /var/lib/seagl/configset-id
+	zenity --list --text 'Which configset should we use?' --column=ID --column=Description $(jq -r '.configSets | to_entries[] | select(.key != "GLOBAL_INHERIT") | .key + ":" + .value._meta.description' < /var/lib/seagl/config-data.json.unrendered | tr '\n' ':') > /var/lib/seagl/configset-id
 	unset IFS
 fi
 
