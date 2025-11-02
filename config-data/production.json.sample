@@ -1,52 +1,78 @@
 {
 	"_comment": "The authoritative copy of the production version of this file is the one checked into SeaGL/av-linux on GitHub.",
-	"rtmpKeys": {
+	"configSets": {
+		"GLOBAL_INHERIT": {
+			"awsCreds": {
+				"accessKey": "XXX",
+				"secretAccessKey": "XXX"
+			},
+			"nextcloudAppPassword": "XXX",
+			"avTestResultsSheetURL": "XXX",
+			"remoteSpeakerJitsiURLs": "XXX",
+			"nextcloudUserPassword": "XXX",
+			"zrokKey": "XXX",
+			"scheduleUrl": "https://pretalx.seagl.org/XXX/schedule/"
+		},
 		"ajDevelopment": {
-			"keysetDescription": "AJ development test keys",
-			"Lyceum": "XXX"
+			"_meta": {
+				"description": "AJ development test keys"
+			},
+			"Virtual Test Room": {
+				"youtubeRtmpKey": "XXX"
+			}
 		},
 		"onsiteTest": {
-			"keysetDescription": "On-site Thursday test",
-			"Lyceum": "XXX"
+			"_meta": {
+				"description": "On-site Thursday test"
+			},
+			"On-site test room": {
+				"youtubeRtmpKey": "XXX"
+			}
 		},
 		"remoteSpeakerAvTest": {
-			"keysetDescription": "Remote speaker Thursday night A/V test",
-			"Lyceum": "XXX"
+			"_meta": {
+				"description": "Remote speaker Thursday night A/V test"
+			},
+			"Lyceum": {
+				"youtubeRtmpKey": "XXX"
+			}
 		},
 		"production": {
-			"keysetDescription": "Production YouTube streams - both days",
-			"Lyceum": "XXX",
-			"332": "XXX",
-			"334": "XXX",
-			"340": "XXX"
+			"_meta": {
+				"description": "Production streams - both days"
+			},
+			"Lyceum": {
+				"youtubeRtmpKey": "XXX",
+				"peertubeRtmpKey": "XXX",
+				"matrixCredentials": {
+					"user": "XXX",
+					"password": "XXX"
+				}
+			},
+			"332": {
+				"youtubeRtmpKey": "XXX",
+				"peertubeRtmpKey": "XXX",
+				"matrixCredentials": {
+					"user": "XXX",
+					"password": "XXX"
+				}
+			},
+			"334": {
+				"youtubeRtmpKey": "XXX",
+				"peertubeRtmpKey": "XXX",
+				"matrixCredentials": {
+					"user": "XXX",
+					"password": "XXX"
+				}
+			},
+			"340": {
+				"youtubeRtmpKey": "XXX",
+				"peertubeRtmpKey": "XXX",
+				"matrixCredentials": {
+					"user": "XXX",
+					"password": "XXX"
+				}
+			}
 		}
-	},
-	"matrixCredentials": {
-		"Lyceum": {
-			"user": "XXX",
-			"password": "XXX"
-		},
-		"332": {
-			"user": "XXX",
-			"password": "XXX"
-		},
-		"334": {
-			"user": "XXX",
-			"password": "XXX"
-		},
-		"340": {
-			"user": "XXX",
-			"password": "XXX"
-		}
-	},
-	"nextcloudAppPassword": "XXX",
-	"avTestResultsSheetURL": "XXX",
-	"remoteSpeakerJitsiURLs": "XXX",
-	"awsCreds": {
-		"accessKey": "XXX",
-		"secretAccessKey": "XXX"
-	},
-	"nextcloudUserPassword": "XXX",
-	"zrokKey": "XXX",
-	"scheduleUrl": "https://pretalx.seagl.org/XXX/schedule/"
+	}
 }

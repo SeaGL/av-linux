@@ -23,10 +23,7 @@ hostnamectl location "$(sed -E 's/([[:digit:]])/Room \1/' < /var/lib/seagl/room-
 
 if zenity --question --text='Should this laptop be provisioned for streaming? Choose no if it will only be used for presentations.'; then
 	echo streaming > /var/lib/seagl/laptop-type
-	descriptions=()
-	# Can't do `| while read` because bash runs this in a subshell, and vars don't set.
-	# https://unix.stackexchange.com/a/143959/29146
-	while read i; do descriptions+=("$i"); done < <(jq -r '.rtmpKeys[] | .keysetDescription' < /var/lib/seagl/config-data.json)
+	# TODO clean this up given the new config format
 	desc="$(zenity --list --text='Which RTMP keyset is this?' --column=Room "${descriptions[@]}")"
 	# This is a little hard to follow, but basically we use to_entries to work with the key and (object) value at the same object depth, then filter for a description matching what Zenity gave us. The matching description's associated key is the keyset ID.
 	jq -r '.rtmpKeys | to_entries[] | select (.value.keysetDescription == "'"$desc"'") | .key' </var/lib/seagl/config-data.json >/var/lib/seagl/rtmp-keyset
