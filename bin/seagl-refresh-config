@@ -10,22 +10,34 @@ fi
 # TODO figure out how to script age's password input, then cache the password here
 curl https://seagl.org/av-linux/production.json.age > /var/lib/seagl/config-data.json.age
 echo Decrypting laptop configuration data - you will be prompted for the password
-while ! age --decrypt /var/lib/seagl/config-data.json.age > /var/lib/seagl/config-data.json.new; do
+while ! age --decrypt /var/lib/seagl/config-data.json.age > /var/lib/seagl/config-data.json.unrendered; do
 	true
 done
 
-# This script really should run ok noninteractively, but this Zenity call is ok
-# because basically by definition, it only occurs at room setup. After that we just
-# use the cached value.
+# This script really should run ok noninteractively, but these Zenity calls are ok
+# because basically by definition, they only occur at room setup. After that we just
+# use the cached values.
+#
+# TODO fallback description if one is not provided
+if ! test -f /var/lib/seagl/configset-id; then
+	IFS=:
+	zenity --list --text 'Which configset should we use?' --column=ID --column=Description $(jq -r '.configSets | to_entries[] | select(.key != "GLOBAL_INHERIT") | .key + ":" + .value._meta.description' < /var/lib/seagl/config-data.json.unrendered | tr '\n' ':' > /var/lib/seagl/configset-id
+	unset IFS
+fi
+
 if ! test -f /var/lib/seagl/room-id; then
 	zenity --list --text='Which room is this?' --column=Room Lyceum 332 334 340 > /var/lib/seagl/room-id
 fi
+
+# XXX should we strip _ prefixed keys? _meta, mostly
+jq -r --tab ".configSets.GLOBAL_INHERIT + .configSets.$(cat /var/lib/seagl/configset-id).$(cat /var/lib/seagl/room-id)" /var/lib/seagl/config-data.json.unrendered > /var/lib/seagl/config-data.json.new
 
 if test -e /var/lib/seagl/config-data.json; then
 	diff --color=always /var/lib/seagl/config-data.json{,.new} || true
 else
 	echo | diff --color=always - /var/lib/seagl/config-data.json.new || true
 fi
+echo Note that the above diff is for the room-specific rendered config that will be in effect on this host, NOT the raw global config that was downloaded.
 
 mv /var/lib/seagl/config-data.json{.new,}
 rm /var/lib/seagl/config-data.json.age
