@@ -19,8 +19,6 @@ mkdir -p /var/lib/seagl
 
 seagl-refresh-config
 
-zenity --list --text='Which room is this?' --column=Room Lyceum 332 334 340 > /var/lib/seagl/room-id
-
 hostnamectl location "$(sed -E 's/([[:digit:]])/Room \1/' < /var/lib/seagl/room-id)"
 
 if zenity --question --text='Should this laptop be provisioned for streaming? Choose no if it will only be used for presentations.'; then

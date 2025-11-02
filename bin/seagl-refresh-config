@@ -14,6 +14,13 @@ while ! age --decrypt /var/lib/seagl/config-data.json.age > /var/lib/seagl/confi
 	true
 done
 
+# This script really should run ok noninteractively, but this Zenity call is ok
+# because basically by definition, it only occurs at room setup. After that we just
+# use the cached value.
+if ! test -f /var/lib/seagl/room-id; then
+	zenity --list --text='Which room is this?' --column=Room Lyceum 332 334 340 > /var/lib/seagl/room-id
+fi
+
 if test -e /var/lib/seagl/config-data.json; then
 	diff --color=always /var/lib/seagl/config-data.json{,.new} || true
 else
