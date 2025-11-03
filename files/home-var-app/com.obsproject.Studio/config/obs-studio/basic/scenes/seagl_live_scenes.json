@@ -21,7 +21,7 @@
     "name": "seagl_live_scenes",
     "sources": [
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "full_camera",
             "uuid": "f95349e9-bf15-4542-8041-f568c6fad570",
             "id": "scene",
@@ -169,10 +169,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520093698,
+                    "prev_ver": 536870914,
                     "name": "Source Record",
                     "uuid": "46777cb6-a07c-4dc6-82ea-573a2651ba62",
                     "id": "source_record_filter",
@@ -185,14 +186,14 @@
                         "audio_track": 1,
                         "audio_source": "webcam_mic",
                         "split_file": true,
+                        "bitrate": 2500,
+                        "rate_control": "CBR",
+                        "profile": "high",
                         "path": "/home/seagloperator/RawVideo/",
                         "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-webcam",
                         "rec_format": "mkv",
                         "encoder": "obs_nvenc_h264_tex",
-                        "audio_encoder": "ffmpeg_opus",
-                        "bitrate": 2500,
-                        "rate_control": "CBR",
-                        "profile": "high"
+                        "audio_encoder": "ffmpeg_opus"
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -214,7 +215,7 @@
             ]
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "full_screencap",
             "uuid": "29ffcbfa-bce6-4e13-b5e1-fec38a27ebee",
             "id": "scene",
@@ -362,10 +363,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520093698,
+                    "prev_ver": 536870914,
                     "name": "Source Record",
                     "uuid": "14423812-40c4-41fd-ba6d-0bf738dd963f",
                     "id": "source_record_filter",
@@ -409,7 +411,7 @@
             ]
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "screencap",
             "uuid": "e3ae278e-5618-4ddb-b68b-867880f42d04",
             "id": "v4l2_input",
@@ -441,7 +443,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "screencap_audio",
             "uuid": "8bda9ec4-ba31-4cf6-aa80-8b7cbfe15225",
             "id": "pulse_input_capture",
@@ -472,7 +474,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "webcam_mic",
             "uuid": "edc1fe1d-46a2-4893-874f-f9c9054e6cde",
             "id": "pulse_input_capture",
@@ -503,7 +505,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520093698,
+                    "prev_ver": 536870914,
                     "name": "LocalVocal Transcription",
                     "uuid": "1b271aeb-110d-46e3-8499-b0343d28267f",
                     "id": "transcription_filter_audio_filter",
@@ -542,7 +544,7 @@
             ]
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "auto",
             "uuid": "274fea66-02fc-452e-a5e7-30dca5b4b71e",
             "id": "scene",
@@ -820,10 +822,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520093698,
+                    "prev_ver": 536870914,
                     "name": "Source Record",
                     "uuid": "1b9e2054-4636-4368-9c59-4650f8b1ecff",
                     "id": "source_record_filter",
@@ -870,7 +873,7 @@
             ]
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "splash",
             "uuid": "4033b9bb-9dd8-4cd0-bf2a-3328be35c579",
             "id": "scene",
@@ -955,10 +958,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "seagl_logo",
             "uuid": "ea7e0e21-f74d-4448-be89-765cd992a408",
             "id": "image_source",
@@ -984,7 +988,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "info reel",
             "uuid": "43358701-a4f2-42f6-a58b-b79e174f294f",
             "id": "scene",
@@ -1011,10 +1015,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
         },
         {
-            "prev_ver": 520093698,
+            "prev_ver": 536870914,
             "name": "webcam",
             "uuid": "f97fc2f2-a848-4639-bb38-720c702728ec",
             "id": "v4l2_input",
@@ -1071,11 +1076,12 @@
     ],
     "transitions": [],
     "saved_projectors": [],
+    "canvases": [],
     "current_transition": "Fade",
     "transition_duration": 1000,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": 0,
+    "scaling_level": -17,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "modules": {
@@ -1104,6 +1110,8 @@
                     },
                     "dockSettings": {
                         "register": false,
+                        "standaloneDock": true,
+                        "dockWindow": "Dock",
                         "hasRunButton": true,
                         "hasPauseButton": true,
                         "hasStatusLabel": false,
@@ -1166,7 +1174,8 @@
                                 },
                                 "sceneSelection": {
                                     "type": 0,
-                                    "name": ""
+                                    "name": "",
+                                    "canvasSelection": "Main"
                                 }
                             },
                             "condition": 5,
@@ -1291,9 +1300,16 @@
                                 "version": 1
                             },
                             "id": "scene_switch",
+                            "action": 0,
+                            "canvas": "Main",
+                            "index": {
+                                "value": 1,
+                                "type": 0
+                            },
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "full_camera"
+                                "name": "full_camera",
+                                "canvasSelection": "Main"
                             },
                             "transitionType": 0,
                             "transition": "Fade",
@@ -1319,7 +1335,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1340,7 +1357,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": ""
+                                "name": "",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1361,9 +1379,16 @@
                                 "version": 1
                             },
                             "id": "scene_switch",
+                            "action": 0,
+                            "canvas": "Main",
+                            "index": {
+                                "value": 1,
+                                "type": 0
+                            },
                             "sceneSelection": {
                                 "type": 0,
-                                "name": ""
+                                "name": "",
+                                "canvasSelection": "Main"
                             },
                             "transitionType": 0,
                             "transition": "Fade",
@@ -1389,7 +1414,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1410,7 +1436,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": ""
+                                "name": "",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1445,6 +1472,8 @@
                     },
                     "dockSettings": {
                         "register": false,
+                        "standaloneDock": true,
+                        "dockWindow": "Dock",
                         "hasRunButton": true,
                         "hasPauseButton": true,
                         "hasStatusLabel": false,
@@ -1507,7 +1536,8 @@
                                 },
                                 "sceneSelection": {
                                     "type": 0,
-                                    "name": ""
+                                    "name": "",
+                                    "canvasSelection": "Main"
                                 }
                             },
                             "condition": 5,
@@ -1634,7 +1664,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1655,7 +1686,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": ""
+                                "name": "",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1678,7 +1710,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1699,7 +1732,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": ""
+                                "name": "",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1734,6 +1768,8 @@
                     },
                     "dockSettings": {
                         "register": false,
+                        "standaloneDock": true,
+                        "dockWindow": "Dock",
                         "hasRunButton": true,
                         "hasPauseButton": true,
                         "hasStatusLabel": false,
@@ -1807,9 +1843,16 @@
                                 "version": 1
                             },
                             "id": "scene_switch",
+                            "action": 0,
+                            "canvas": "Main",
+                            "index": {
+                                "value": 1,
+                                "type": 0
+                            },
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "info reel"
+                                "name": "info reel",
+                                "canvasSelection": "Main"
                             },
                             "transitionType": 0,
                             "transition": "Fade",
@@ -1835,7 +1878,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -1856,7 +1900,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": ""
+                                "name": "",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -2000,6 +2045,8 @@
                     },
                     "dockSettings": {
                         "register": false,
+                        "standaloneDock": true,
+                        "dockWindow": "Dock",
                         "hasRunButton": true,
                         "hasPauseButton": true,
                         "hasStatusLabel": false,
@@ -2073,9 +2120,16 @@
                                 "version": 1
                             },
                             "id": "scene_switch",
+                            "action": 0,
+                            "canvas": "Main",
+                            "index": {
+                                "value": 1,
+                                "type": 0
+                            },
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "transitionType": 0,
                             "transition": "Fade",
@@ -2101,7 +2155,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -2122,7 +2177,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": ""
+                                "name": "",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -2266,6 +2322,8 @@
                     },
                     "dockSettings": {
                         "register": false,
+                        "standaloneDock": true,
+                        "dockWindow": "Dock",
                         "hasRunButton": true,
                         "hasPauseButton": true,
                         "hasStatusLabel": false,
@@ -2347,7 +2405,8 @@
                             "fullscreen": true,
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "auto"
+                                "name": "auto",
+                                "canvasSelection": "Main"
                             },
                             "source": {
                                 "type": 0,
@@ -2386,6 +2445,8 @@
                     },
                     "dockSettings": {
                         "register": false,
+                        "standaloneDock": true,
+                        "dockWindow": "Dock",
                         "hasRunButton": true,
                         "hasPauseButton": true,
                         "hasStatusLabel": false,
@@ -2442,7 +2503,7 @@
                             },
                             "dayOfWeek": 0,
                             "condition": 0,
-                            "dateTime": "Tue Sep 23 17:37:00 2025",
+                            "dateTime": "Mon Nov 3 17:37:00 2025",
                             "dateTime2": "Sun Aug 31 08:14:26 2025",
                             "ignoreDate": false,
                             "ignoreTime": false,
@@ -2472,7 +2533,8 @@
                             "id": "scene_visibility",
                             "sceneSelection": {
                                 "type": 0,
-                                "name": "info reel"
+                                "name": "info reel",
+                                "canvasSelection": "Main"
                             },
                             "sceneItemSelection": {
                                 "type": 0,
@@ -2508,6 +2570,8 @@
                     },
                     "dockSettings": {
                         "register": false,
+                        "standaloneDock": true,
+                        "dockWindow": "Dock",
                         "hasRunButton": true,
                         "hasPauseButton": true,
                         "hasStatusLabel": false,
@@ -2657,7 +2721,13 @@
             },
             "videoSwitches": [],
             "interval": 300,
-            "non_matching_scene": "",
+            "noMatchScene": {
+                "sceneSelection": {
+                    "type": 0,
+                    "name": "",
+                    "canvasSelection": "Main"
+                }
+            },
             "switch_if_not_matching": 0,
             "noMatchDelay": {
                 "value": {
@@ -2678,7 +2748,21 @@
             "enableCooldown": false,
             "active": true,
             "startup_behavior": 0,
-            "autoStartEvent": 0,
+            "autoStart": {
+                "event": 0,
+                "useAutoStartScene": false,
+                "sceneSelection": {
+                    "type": 0,
+                    "name": "",
+                    "canvasSelection": "Main"
+                },
+                "name": "",
+                "regexConfig": {
+                    "enable": false,
+                    "partial": false,
+                    "options": 0
+                }
+            },
             "logLevel": 0,
             "logLevelVersion": 1,
             "showSystemTrayNotifications": false,
@@ -2767,13 +2851,16 @@
                     "websocketConnectionTab": 16
                 },
                 {
-                    "twitchConnectionTab": 17
+                    "mqttConnectionTab": 17
                 },
                 {
-                    "variableTab": 18
+                    "twitchConnectionTab": 18
                 },
                 {
-                    "actionQueueTab": 19
+                    "variableTab": 19
+                },
+                {
+                    "actionQueueTab": 20
                 }
             ],
             "saveWindowGeo": false,
@@ -2789,10 +2876,14 @@
                     "pos": 826
                 }
             ],
-            "version": "bf7fe71ae39a9a0a782a224dedda14513b97dfc2",
+            "version": "e1020a190932e2618e1ad52894e2861103c40ab7",
             "websocketConnections": [],
+            "mqttConnections": [],
             "twitchConnections": [],
-            "actionQueues": []
+            "actionQueues": [],
+            "dockWindows": {
+                "docks": []
+            }
         },
         "auto-scene-switcher": {
             "interval": 300,
