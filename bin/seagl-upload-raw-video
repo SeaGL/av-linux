@@ -7,4 +7,4 @@ if [ $(id -u) == 0 ]; then
 	exec sudo -u seagloperator $0 "$@"
 fi
 
-rclone copy /home/seagloperator/RawVideo/ seagl_s3:cloud.seagl.org/seagl2024-raw-videos/$(cat /var/lib/seagl/room-id)/ --min-age=1m --suffix=".conflict.$(date +%s)" --progress --delete-during -v
+rclone copy /home/seagloperator/RawVideo/ seagl_s3:cloud.seagl.org/seagl$(date +%Y)-raw-videos/$(cat /var/lib/seagl/room-id)/ --min-age=1m --suffix=".conflict.$(date +%s)" --progress --delete-during -v
