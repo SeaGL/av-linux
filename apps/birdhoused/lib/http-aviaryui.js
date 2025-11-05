@@ -11,7 +11,7 @@ router.get('/set-livestream-state', async function(req, res) {
 	console.log('Received request to set livestream state: ' + state);
 
 	// TODO update these with the actual names
-	var targetScene = state ? 'Room' : 'Ad Roll';
+	var targetScene = state ? 'splash' : 'Ad Roll';
 
 	var client = await obs();
 	await client.call('SetCurrentProgramScene', {sceneName: targetScene});
