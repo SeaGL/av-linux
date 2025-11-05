@@ -48,7 +48,7 @@
 		"NoDefaultBookmarks": true,
 		"OverrideFirstRunPage": "",
 		"SearchEngines": {
-			"Default": "ddg@search.mozilla.org"
+			"Default": "ddg"
 		},
 		"SearchSuggestEnabled": true,
 		"UserMessaging": {
