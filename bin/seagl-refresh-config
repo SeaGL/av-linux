@@ -27,12 +27,12 @@ fi
 
 if ! test -f /var/lib/seagl/room-id; then
 	IFS="\n"
-	zenity --list --text='Which room is this?' --column=Room $(jq -r '.configSets.'"$(cat /var/lib/seagl/configset-id)"' | keys[] | select(. != "_meta")' < /var/lib/seagl/config-data.json.unrendered | sort) > /var/lib/seagl/room-id
+	zenity --list --text='Which room is this?' --column=Room $(jq -r '.configSets."'"$(cat /var/lib/seagl/configset-id)"'" | keys[] | select(. != "_meta")' < /var/lib/seagl/config-data.json.unrendered | sort) > /var/lib/seagl/room-id
 	unset IFS
 fi
 
 # XXX should we strip _ prefixed keys? _meta, mostly
-jq -r --tab ".configSets.GLOBAL_INHERIT + .configSets.$(cat /var/lib/seagl/configset-id).$(cat /var/lib/seagl/room-id)" /var/lib/seagl/config-data.json.unrendered > /var/lib/seagl/config-data.json.new
+jq -r --tab ".configSets.GLOBAL_INHERIT + .configSets.\"$(cat /var/lib/seagl/configset-id)\".\"$(cat /var/lib/seagl/room-id)\"" /var/lib/seagl/config-data.json.unrendered > /var/lib/seagl/config-data.json.new
 
 if test -e /var/lib/seagl/config-data.json; then
 	diff --color=always /var/lib/seagl/config-data.json{,.new} || true
