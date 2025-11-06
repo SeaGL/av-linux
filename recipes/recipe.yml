@@ -22,6 +22,7 @@ modules:
       - fuse-devel
       - cheese
       - nodejs
+      - dbus-x11 # Without this, gsettings errors out trying to spawn `dbus-launch`
       # Presentation machine packages
       - libreoffice
       - nextcloud-client
