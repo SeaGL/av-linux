@@ -10,8 +10,8 @@ if [ -e /var/lib/seagl/room-setup-complete ]; then
 	exit 0
 fi
 
-mkdir -p /var/lib/seagl
-chown -R seagloperator:seagloperator /var/lib/seagl
+sudo mkdir -p /var/lib/seagl
+sudo chown -R seagloperator:seagloperator /var/lib/seagl
 
 seagl-refresh-config
 
