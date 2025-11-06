@@ -32,6 +32,7 @@ if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	seagl-setup-app firefox
 	seagl-setup-app rclone
 	seagl-setup-app zrok
+	seagl-setup-app aviaryui
 	# XXX this is a hack
 	sleep 20 # Do our best to avoid birdhoused startup crashes reported by systemd, though it'll be restarted so this is just cosmetic
 	seagl-setup-app birdhoused
