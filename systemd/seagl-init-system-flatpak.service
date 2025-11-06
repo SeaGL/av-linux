@@ -8,7 +8,7 @@ Before=basic.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/bash -c "mv /var/lib/flatpak /var/lib/flatpak-old; cp -a /usr/lib/seagl-flatpak /var/lib/flatpak; rm -rf /var/lib/flatpak-old; sleep 5; rm -rf /var/lib/flatpak-old"
+ExecStart=/bin/bash -c "mv /var/lib/flatpak /var/lib/flatpak-old; ln -s /usr/lib/seagl-flatpak /var/lib/flatpak; rm -rf /var/lib/flatpak-old; sleep 5; rm -rf /var/lib/flatpak-old"
 
 [Install]
 WantedBy=multi-user.target
