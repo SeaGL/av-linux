@@ -47,7 +47,10 @@ elif [ "$arg" == rclone ]; then
 	# Do the exact same thing but with sudo, in case someone runs rclone from a root shell by mistake
 	sudo rclone config create seagl_s3 s3 provider=AWS access_key_id="$(get_config_value .awsCreds.accessKey)" secret_access_key="$(get_config_value .awsCreds.secretAccessKey)" env_auth=false region=us-west-2 endpoint= location_constraint=us-west-2 acl=private
 elif [ "$arg" == birdhoused ]; then
-	systemctl --user enable --now seagl-birdhoused.service
+	systemctl --user enable --now seagl-birdhoused.service || true
+	# TODO remove this hack
+	echo 'You may see systemctl failures above. This is expected, because birdhoused will crash and restart until it can connect to the OBS WebSocket.'
+	echo 'YOU SHOULD PROBABLY DOUBLE-CHECK THAT IT EVENTUALLY STARTED OK.'
 elif [ "$arg" == zrok ]; then
 	zrok enable $(get_config_value .zrokKey)
 	systemctl --user enable --now seagl-zrok-share.service
