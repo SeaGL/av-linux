@@ -18,6 +18,6 @@ chown seagloperator:seagloperator /home/seagloperator/RawVideo
 
 mkdir -p /var/lib/seagl-nextcloud
 chown seagloperator:seagloperator /var/lib/seagl-nextcloud
-systemctl restart nextcloud-dir.mount
+systemctl try-restart home-seagloperator-Nextcloud.mount
 
 touch /var/lib/seagl/users-created
