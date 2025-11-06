@@ -30,7 +30,7 @@ function get_config_value() {
 
 if [ "$arg" == obs ]; then
 	rtmp_key=$(get_config_value .youtubeRtmpKey)
-	sed -i "s/__YOUTUBE_STREAM_KEY__/$rtmp_key/" ~/.var/app/com.obsproject.Studio/config/obs-studio/basic/profiles/Untitled/service.json
+	sed -i "s/__YOUTUBE_STREAM_KEY__/$rtmp_key/" ~/.var/app/com.obsproject.Studio/config/obs-studio/basic/profiles/seagl_live/service.json
 	start_and_link_app com.obsproject.Studio
 elif [ "$arg" == nextcloud ]; then
 	nextcloud --userid $(date +%Y)laptops --apppassword "$(get_config_value .nextcloudAppPassword)" --isvfsenabled 0 --serverurl 'https://cloud.seagl.org/'  --localdirpath /home/seagloperator/Nextcloud
