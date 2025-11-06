@@ -1,1 +1,1 @@
-{"type":"rtmp_custom","settings":{"server":"rtmp://localhost:1935/live","use_auth":false,"bwtest":false,"key":""}}
+{"type":"rtmp_common","settings":{"service":"YouTube - RTMPS","protocol":"RTMPS","server":"rtmps://a.rtmps.youtube.com:443/live2","bwtest":false,"key":"__YOUTUBE_STREAM_KEY__"}}
