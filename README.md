@@ -24,7 +24,7 @@ Working knowledge in the following topics:
 
 This procedure was tested on one of the conference's streaming laptops; you may need to adjust otherwise.
 
-1. Write and boot a Fedora Silverblue (as of October 2024, version 40) installer.
+1. Write and boot a Fedora Silverblue (as of October 2024, version 40) installer. On conference laptops, the boot menu key is F12.
 2. Select Automatic partitioning and check the checkbox to free space by removing or resizing existing partitions.
 3. When prompted, remove **all** partitions, including and especially the EFI System Partition.
 4. Run the installer.
