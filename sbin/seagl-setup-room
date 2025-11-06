@@ -27,7 +27,7 @@ else
 	echo presentations > /var/lib/seagl/laptop-type
 fi
 
-hostnamectl hostname seagl-$(tr '[:upper:]' '[:lower:]' < /var/lib/seagl/room-id)-$(cat /var/lib/seagl/laptop-type)
+hostnamectl hostname seagl-$(tr '[:upper:] ' '[:lower:]-' < /var/lib/seagl/room-id)-$(cat /var/lib/seagl/laptop-type)
 
 if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	# TODO add SeaGL-specific scripts into here
