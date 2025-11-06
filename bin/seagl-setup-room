@@ -16,10 +16,11 @@ if ! [ $(id -u) == 0 ]; then
 fi
 
 mkdir -p /var/lib/seagl
+chown -R seagloperator:seagloperator /var/lib/seagl
 
 seagl-refresh-config
 
-hostnamectl location "$(sed -E 's/([[:digit:]])/Room \1/' < /var/lib/seagl/room-id)"
+sudo hostnamectl location "$(sed -E 's/([[:digit:]])/Room \1/' < /var/lib/seagl/room-id)"
 
 if zenity --question --text='Should this laptop be provisioned for streaming? Choose no if it will only be used for presentations.'; then
 	echo streaming > /var/lib/seagl/laptop-type
@@ -27,23 +28,23 @@ else
 	echo presentations > /var/lib/seagl/laptop-type
 fi
 
-hostnamectl hostname seagl-$(tr '[:upper:] ' '[:lower:]-' < /var/lib/seagl/room-id)-$(cat /var/lib/seagl/laptop-type)
+sudo hostnamectl hostname seagl-$(tr '[:upper:] ' '[:lower:]-' < /var/lib/seagl/room-id)-$(cat /var/lib/seagl/laptop-type)
 
 if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	# TODO add SeaGL-specific scripts into here
-	sudo -u $SUDO_USER gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
-	sudo -u $SUDO_USER seagl-setup-app obs
-	sudo -u $SUDO_USER seagl-setup-app firefox
-	sudo -u $SUDO_USER seagl-setup-app rclone
-	sudo -u $SUDO_USER seagl-setup-app birdhoused
-	sudo -u $SUDO_USER seagl-setup-app zrok
+	gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
+	seagl-setup-app obs
+	seagl-setup-app firefox
+	seagl-setup-app rclone
+	seagl-setup-app birdhoused
+	seagl-setup-app zrok
 else
-	sudo -u $SUDO_USER seagl-setup-app nextcloud
+	seagl-setup-app nextcloud
 fi
 
 # For some reason, Toolbx wants to create a Fedora 38 container??
 # TODO confirm this is an upstream bug, then report
-yes | sudo -u $SUDO_USER toolbox create --assumeyes --release f42
+yes | toolbox create --assumeyes --release f42
 
 touch /var/lib/seagl/room-setup-complete
 

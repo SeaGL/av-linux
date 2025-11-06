@@ -5,6 +5,6 @@ Version=1.0
 Name=Setup SeaGL Room
 # Used as a tooltip
 Comment=Normally, this should be run automatically
-Exec=sudo /usr/sbin/seagl-setup-room
+Exec=/usr/sbin/seagl-setup-room
 Terminal=true
 Categories=Utilities;ConsoleOnly;
