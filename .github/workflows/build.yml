@@ -46,6 +46,7 @@ jobs:
           pr_event_number: ${{ github.event.number }}
 
           use_cache: true
+          rechunk: true
 
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
