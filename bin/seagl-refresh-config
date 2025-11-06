@@ -26,7 +26,8 @@ if ! test -f /var/lib/seagl/configset-id; then
 fi
 
 if ! test -f /var/lib/seagl/room-id; then
-	IFS="\n"
+	IFS='
+'
 	zenity --list --text='Which room is this?' --column=Room $(jq -r '.configSets."'"$(cat /var/lib/seagl/configset-id)"'" | keys[] | select(. != "_meta")' < /var/lib/seagl/config-data.json.unrendered | sort) > /var/lib/seagl/room-id
 	unset IFS
 fi
