@@ -10,11 +10,6 @@ if [ -e /var/lib/seagl/room-setup-complete ]; then
 	exit 0
 fi
 
-if ! [ $(id -u) == 0 ]; then
-        echo must be run as root 1>&2
-        exit 1
-fi
-
 mkdir -p /var/lib/seagl
 chown -R seagloperator:seagloperator /var/lib/seagl
 
