@@ -2,6 +2,7 @@ server:
   ip: 127.0.0.1
   port: 1935
   app: sprout
+  key: KEY_DOESNT_MATTER
   archive_stream: false
   archive_path: ~/Streams
 
