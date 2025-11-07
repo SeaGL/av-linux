@@ -4,7 +4,7 @@ Description=Birdhouse control daemon
 [Service]
 Type=exec
 Restart=always
-ExecStart=/usr/bin/birdhoused
+ExecStart=/usr/bin/birdhoused /var/lib/seagl/config-data.json
 Environment=NODE_ENV=production
 
 [Install]
