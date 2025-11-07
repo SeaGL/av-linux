@@ -48,7 +48,7 @@
 		"NoDefaultBookmarks": true,
 		"OverrideFirstRunPage": "",
 		"SearchEngines": {
-			"Default": "ddg"
+			"Default": "DuckDuckGo"
 		},
 		"SearchSuggestEnabled": true,
 		"UserMessaging": {
