@@ -30,7 +30,7 @@ This procedure was tested on one of the conference's streaming laptops; you may 
 4. Run the installer.
 5. Reboot.
 6. Go through setup.
-   1. Connect to WiFi.
+   1. Connect to WiFi. NOTE that as of Fedora 40, captive portal login (like UW uses) does not work during initial setup. Use a phone hotspot to get through initial setup, then you can switch to UW's WiFi once you're on the desktop.
    2. Leave location services enabled.
    3. Enable Third-Party Repositories and click Next.
    4. Set Full Name to "SeaGL Provisioning".
