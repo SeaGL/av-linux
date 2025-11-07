@@ -29,8 +29,8 @@
             "buildsystem" : "meson",
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "file:///var/home/alex/Development/birdhouse"
+                    "type" : "dir",
+                    "url" : "."
                 }
             ]
         }
