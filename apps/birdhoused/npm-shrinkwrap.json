@@ -15,6 +15,9 @@
         "express": "^5.1.0",
         "obs-websocket-js": "^5.0.6",
         "smart-spawn": "^2.0.1"
+      },
+      "bin": {
+        "birdhoused": "index.js"
       }
     },
     "node_modules/@msgpack/msgpack": {
