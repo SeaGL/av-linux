@@ -4,7 +4,7 @@ Description=Stream Sprout video stream multiplexer
 [Service]
 Type=exec
 Restart=always
-ExecStart=/usr/bin/streamsprout -c /etc/seagl/streamsprout.yaml
+ExecStart=/usr/bin/stream-sprout -c /etc/seagl/stream-sprout.yaml
 
 [Install]
 WantedBy=default.target
