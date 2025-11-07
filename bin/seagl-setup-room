@@ -28,6 +28,7 @@ sudo hostnamectl hostname seagl-$(tr '[:upper:] ' '[:lower:]-' < /var/lib/seagl/
 if [ $(cat /var/lib/seagl/laptop-type) == streaming ]; then
 	# TODO add SeaGL-specific scripts into here
 	gsettings set org.gnome.shell favorite-apps "['org.mozilla.firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'com.nextcloud.desktopclient.nextcloud.desktop', 'com.obsproject.Studio.desktop']"
+	seagl-setup-app nextcloud
 	seagl-setup-app obs
 	seagl-setup-app firefox
 	seagl-setup-app rclone
