@@ -1,0 +1,16 @@
+server:
+  ip: 127.0.0.1
+  port: 1935
+  app: sprout
+  archive_stream: false
+  archive_path: ~/Streams
+
+services:
+  peertube:
+    enabled: true
+    rtmp_server: "rtmp://gnulinux.tube:1935/live"
+    key: "peertube_streamkey"
+  youtube:
+    enabled: true
+    rtmp_server: "rtmp://a.rtmp.youtube.com/live2/"
+    key: "youtube_streamkey"
