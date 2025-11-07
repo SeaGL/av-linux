@@ -46,6 +46,7 @@ ARG FEDORA_MAJOR_VERSION=${FEDORA_MAJOR_VERSION}
 COPY build.sh /tmp/build.sh
 
 COPY bin/* /usr/bin/
+COPY vendor-bin/* /usr/bin/
 COPY sbin/* /usr/sbin/
 COPY systemd/* /usr/lib/systemd/system/
 COPY desktops/* /usr/share/applications/

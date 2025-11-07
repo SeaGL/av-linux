@@ -9,8 +9,8 @@ services:
   peertube:
     enabled: true
     rtmp_server: "rtmp://gnulinux.tube:1935/live"
-    key: "peertube_streamkey"
+    key: "__PEERTUBE_STREAM_KEY__"
   youtube:
     enabled: true
     rtmp_server: "rtmp://a.rtmp.youtube.com/live2/"
-    key: "youtube_streamkey"
+    key: "__YOUTUBE_STREAM_KEY__"

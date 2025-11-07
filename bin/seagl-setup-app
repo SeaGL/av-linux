@@ -56,7 +56,12 @@ elif [ "$arg" == zrok ]; then
 	systemctl --user enable --now seagl-zrok-share.service
 elif [ "$arg" == aviaryui ]; then
 	start_and_link_app org.seagl.AviaryUI
+elif [ "$arg" == streamsprout ]; then
+	rtmp_key=$(get_config_value .youtubeRtmpKey)
+	peertube_rtmp_key=$(get_config_value .peertubeRtmpKey)
+	sed -ie "s/__YOUTUBE_STREAM_KEY__/$rtmp_key/" -e "s/__PEERTUBE_STREAM_KEY__/$peertube_rtmp_key/" /etc/seagl/stream-sprout.yaml
+	systemctl --user enable --now seagl-streamsprout.service
 else
-	echo fatal: application to be set up must be one of obs, nextcloud, firefox, rclone, birdhoused, aviaryui, or zrok, but received $arg 1>&2
+	echo fatal: application to be set up must be one of obs, nextcloud, firefox, rclone, birdhoused, aviaryui, streamsprout, or zrok, but received $arg 1>&2
 	exit 1
 fi

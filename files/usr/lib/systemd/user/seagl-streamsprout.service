@@ -1,0 +1,10 @@
+[Unit]
+Description=Stream Sprout video stream multiplexer
+
+[Service]
+Type=exec
+Restart=always
+ExecStart=/usr/bin/streamsprout -c /etc/seagl/streamsprout.yaml
+
+[Install]
+WantedBy=default.target
