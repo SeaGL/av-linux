@@ -27,7 +27,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Gio, Adw, GLib
+from gi.repository import Gtk, Gio, Adw, GLib, Soup
 from .window import AviaryuiWindow
 
 
@@ -119,11 +119,24 @@ class AviaryuiApplication(Adw.Application):
         new_state = not action.get_state()
         action.change_state(GLib.Variant.new_boolean(new_state))
 
-        # TODO use a real POST request when I don't have to deal with urllib's awfulness
-        with request.urlopen(f'http://localhost:9000/aviaryui/set-livestream-state?state={new_state}') as res:
-            pass
+        status_label = self.props.active_window.status_label
+        status_label.set_label('⚠️ Transitioning - this will take 15 seconds...')
+        toggle_button = self.props.active_window.stream_toggle
+        toggle_button.set_sensitive(False)
 
-        self.synchronize_ui()
+        session = Soup.Session()
+        # TODO use a real POST request
+        message = Soup.Message.new('GET', f'http://localhost:9000/aviaryui/set-livestream-state?state={new_state}')
+
+        def on_response(session, result, _):
+            # TODO handle exceptions
+            response = session.send_and_read_finish(result)
+            toggle_button.set_sensitive(True)
+            self.synchronize_ui()
+            #data = response.get_data().decode()
+            #print(data)
+
+        session.send_and_read_async(message, GLib.PRIORITY_DEFAULT, None, on_response, None)
 
     def create_action(self, name, callback, shortcuts=None):
         """Add an application action.

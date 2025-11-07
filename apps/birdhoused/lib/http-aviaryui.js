@@ -15,6 +15,8 @@ router.get('/set-livestream-state', async function(req, res) {
 
 	var client = await obs();
 	await client.call('SetCurrentProgramScene', {sceneName: targetScene});
+	// https://stackoverflow.com/a/51939030
+	await new Promise(resolve => setTimeout(resolve, 13000));
 
 	// TODO lol should we like... actually send something back
 	res.send();
