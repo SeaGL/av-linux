@@ -1,0 +1,26 @@
+[
+    {
+        "display_name": "",
+        "enabled": true,
+        "encoders": [],
+        "id": "",
+        "module_name": "source-record",
+        "outputs": [],
+        "services": [],
+        "sources": [
+            "source_record_filter"
+        ],
+        "version": ""
+    },
+    {
+        "display_name": "",
+        "enabled": true,
+        "encoders": [],
+        "id": "",
+        "module_name": "advanced-scene-switcher",
+        "outputs": [],
+        "services": [],
+        "sources": [],
+        "version": ""
+    }
+]
