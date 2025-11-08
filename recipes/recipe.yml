@@ -16,7 +16,8 @@ modules:
       - gedit
       # Streaming machine packages
       - obs-studio
-      - obs-studio-devel
+      - obs-studio-devel # TODO figure out how to remove this, it's needed to build OBS Source Record
+      - cmake # Ditto
       - mpv
       - yt-dlp
       - zenity
