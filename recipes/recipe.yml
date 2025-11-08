@@ -15,6 +15,8 @@ modules:
       - seahorse
       - gedit
       # Streaming machine packages
+      - obs-studio
+      - obs-studio-devel
       - mpv
       - yt-dlp
       - zenity
@@ -27,6 +29,20 @@ modules:
       - libreoffice
       - nextcloud-client
       - nextcloud-client-nautilus
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/tarulia/obs-studio-plugins/repo/fedora-%OS_VERSION%/tarulia-obs-studio-plugins-fedora-%OS_VERSION%.repo
+    install:
+      - obs-studio-plugin-advanced-scene-switcher
+  - type: script
+    snippets:
+      - >
+        cd /tmp
+        git clone --branch 0.4.6 https://github.com/exeldro/obs-source-record.git
+        cd obs-source-record/
+        cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_OUT_OF_TREE=On && cmake --build build
+        cd build
+        sudo make install
   # This is early and targeted so that we can install Zrok in lower layers,
   # but not invalidate larger lower layers whenever anything in /etc changes
   - type: files
@@ -76,8 +92,8 @@ modules:
       - source: etc
         destination: /etc
       # TODO lol should this just use the above directory? I didn't because then it makes the dir hidden in the development repo filesystem...
-      - source: home-var-app
-        destination: /etc/skel/.var/app
+      - source: home-config
+        destination: /etc/skel/.config
   - type: os-release
     properties:
       ID: seaglav

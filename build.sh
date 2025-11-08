@@ -6,9 +6,6 @@ RELEASE="$(rpm -E %fedora)"
 
 ### Install packages
 
-flatpak install --noninteractive --system com.obsproject.Studio # This MUST be from Flathub and not Fedora repos to have OpenH264 support
-flatpak install --noninteractive --system com.obsproject.Studio.Plugin.SceneSwitcher
-flatpak install --noninteractive --system com.obsproject.Studio.Plugin.SourceRecord
 flatpak install --noninteractive --system im.riot.Riot
 flatpak install --noninteractive --system org.pulseaudio.pavucontrol
 
