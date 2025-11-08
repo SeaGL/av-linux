@@ -43,6 +43,8 @@ modules:
         cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_OUT_OF_TREE=On && cmake --build build
         cd build
         sudo make install
+        # TODO figure out how to not do this
+        sudo mv /usr/lib/obs-plugins/source-record.so /usr/lib64/obs-plugins
   # This is early and targeted so that we can install Zrok in lower layers,
   # but not invalidate larger lower layers whenever anything in /etc changes
   - type: files
