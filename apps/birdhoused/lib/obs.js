@@ -10,7 +10,7 @@ var OBSWebSocket = require('obs-websocket-js').OBSWebSocket;
 // Also TODO figure out how the fuck to correctly get the password (*after* it's generated)
 
 var obs = new OBSWebSocket();
-var websocketPassword = JSON.parse(fs.readFileSync(path.join(os.homedir(), '.var/app/com.obsproject.Studio/config/obs-studio/plugin_config/obs-websocket/config.json'))).server_password;
+var websocketPassword = JSON.parse(fs.readFileSync(path.join(os.homedir(), '.config/obs-studio/plugin_config/obs-websocket/config.json'))).server_password;
 
 // TODO handle OBS not having started yet
 console.log('Connecting to OBS...');
