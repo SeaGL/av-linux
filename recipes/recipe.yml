@@ -16,6 +16,7 @@ modules:
       - gedit
       # Streaming machine packages
       - obs-studio
+      - obs-studio-plugin-vaapi
       - obs-studio-devel # TODO figure out how to remove this, it's needed to build OBS Source Record
       - cmake # Ditto
       - gcc-c++ # Ditto
