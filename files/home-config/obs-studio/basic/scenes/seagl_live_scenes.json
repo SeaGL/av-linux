@@ -18,7 +18,7 @@
     "name": "seagl_live_scenes",
     "sources": [
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "full_camera",
             "uuid": "f95349e9-bf15-4542-8041-f568c6fad570",
             "id": "scene",
@@ -170,28 +170,28 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 520159233,
                     "name": "Source Record",
                     "uuid": "46777cb6-a07c-4dc6-82ea-573a2651ba62",
                     "id": "source_record_filter",
                     "versioned_id": "source_record_filter",
                     "settings": {
-                        "others": "full_screencap - Source Record",
                         "scale_type": 3,
                         "record_mode": 3,
                         "different_audio": false,
                         "audio_track": 1,
                         "audio_source": "webcam_mic",
                         "split_file": true,
-                        "bitrate": 2500,
-                        "rate_control": "CBR",
-                        "vaapi_device": "/dev/dri/by-path/pci-0000:00:02.0-render",
-                        "profile": 100,
                         "path": "/home/seagloperator/RawVideo/",
                         "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-webcam",
                         "rec_format": "mkv",
                         "encoder": "ffmpeg_vaapi_tex",
-                        "audio_encoder": "ffmpeg_opus"
+                        "audio_encoder": "ffmpeg_opus",
+                        "vaapi_device": "/dev/dri/by-path/pci-0000:00:02.0-render",
+                        "profile": 100,
+                        "bitrate": 2500,
+                        "rate_control": "CBR",
+                        "others": "full_screencap - Source Record\nscreencap - Source Record\nwebcam - Webcam Source Record"
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -213,7 +213,7 @@
             ]
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "full_screencap",
             "uuid": "29ffcbfa-bce6-4e13-b5e1-fec38a27ebee",
             "id": "scene",
@@ -422,29 +422,29 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 520159233,
                     "name": "Source Record",
                     "uuid": "14423812-40c4-41fd-ba6d-0bf738dd963f",
                     "id": "source_record_filter",
                     "versioned_id": "source_record_filter",
                     "settings": {
-                        "others": "full_camera - Source Record",
                         "scale_type": 3,
                         "record_mode": 3,
                         "different_audio": false,
                         "audio_track": 1,
                         "audio_source": "screencap_audio",
                         "split_file": true,
-                        "path": "/home/seagloperator/RawVideo/",
-                        "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-screencap",
-                        "rec_format": "mkv",
-                        "encoder": "obs_x264",
-                        "audio_encoder": "ffmpeg_opus",
                         "crf": 10,
                         "rate_control": "CRF",
                         "preset": "medium",
                         "profile": "high",
-                        "tune": "stillimage"
+                        "tune": "stillimage",
+                        "path": "/home/seagloperator/RawVideo/",
+                        "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-screencap",
+                        "rec_format": "mkv",
+                        "encoder": "x264",
+                        "audio_encoder": "ffmpeg_opus",
+                        "others": "full_camera - Source Record\nscreencap - Source Record\nwebcam - Webcam Source Record"
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -466,17 +466,17 @@
             ]
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "screencap",
             "uuid": "e3ae278e-5618-4ddb-b68b-867880f42d04",
             "id": "v4l2_input",
             "versioned_id": "v4l2_input",
             "settings": {
-                "device_id": "/dev/video0",
+                "device_id": "/dev/video4",
                 "input": 0,
                 "pixelformat": 1448695129,
                 "resolution": 8246337209400,
-                "framerate": -1,
+                "framerate": 30,
                 "color_range": 2,
                 "buffering": false
             },
@@ -505,7 +505,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 520159233,
                     "name": "Source Record",
                     "uuid": "cde9c7b7-baa5-497f-8868-96b8ff6a5d96",
                     "id": "source_record_filter",
@@ -513,11 +513,11 @@
                     "settings": {
                         "others": "full_camera - Source Record\nfull_screencap - Source Record\nwebcam - Webcam Source Record",
                         "scale_type": 3,
-                        "encoder": "x264",
-                        "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-screencap2",
-                        "path": "/home/seagloperator/RawVideo",
                         "record_mode": 3,
-                        "split_file": true
+                        "split_file": true,
+                        "path": "/home/seagloperator/RawVideo",
+                        "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-screencap2",
+                        "encoder": "x264"
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -539,7 +539,7 @@
             ]
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "screencap_audio",
             "uuid": "8bda9ec4-ba31-4cf6-aa80-8b7cbfe15225",
             "id": "pulse_input_capture",
@@ -570,7 +570,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "webcam_mic",
             "uuid": "edc1fe1d-46a2-4893-874f-f9c9054e6cde",
             "id": "pulse_input_capture",
@@ -601,7 +601,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 520159233,
                     "name": "LocalVocal Transcription",
                     "uuid": "1b271aeb-110d-46e3-8499-b0343d28267f",
                     "id": "transcription_filter_audio_filter",
@@ -640,7 +640,7 @@
             ]
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "splash",
             "uuid": "4033b9bb-9dd8-4cd0-bf2a-3328be35c579",
             "id": "scene",
@@ -729,7 +729,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "seagl_logo",
             "uuid": "ea7e0e21-f74d-4448-be89-765cd992a408",
             "id": "image_source",
@@ -755,7 +755,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "Ad Roll",
             "uuid": "43358701-a4f2-42f6-a58b-b79e174f294f",
             "id": "scene",
@@ -844,13 +844,13 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "webcam",
             "uuid": "f97fc2f2-a848-4639-bb38-720c702728ec",
             "id": "v4l2_input",
             "versioned_id": "v4l2_input",
             "settings": {
-                "device_id": "/dev/video4",
+                "device_id": "/dev/video2",
                 "input": 0,
                 "pixelformat": 1448695129,
                 "resolution": 8246337209400,
@@ -882,21 +882,21 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 520159233,
                     "name": "Webcam Source Record",
                     "uuid": "97954600-8801-4d94-ac4d-5efc2635406b",
                     "id": "source_record_filter",
                     "versioned_id": "source_record_filter",
                     "settings": {
                         "scale_type": 3,
-                        "encoder": "x264",
-                        "path": "/home/seagloperator/RawVideo",
                         "split_file": true,
-                        "max_time_sec": 900,
-                        "max_size_mb": 1024,
                         "others": "full_camera - Source Record\nfull_screencap - Source Record\nscreencap - Source Record",
                         "record_mode": 3,
-                        "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-webcam"
+                        "path": "/home/seagloperator/RawVideo",
+                        "filename_formatting": "%CCYY-%MM-%DD %hh-%mm-%ss-webcam",
+                        "encoder": "x264",
+                        "max_size_mb": 1024,
+                        "max_time_sec": 900
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -918,16 +918,16 @@
             ]
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 520159233,
             "name": "Adroll",
             "uuid": "1fa948dd-1e62-43b5-8e05-dfaade5ec352",
             "id": "ffmpeg_source",
             "versioned_id": "ffmpeg_source",
             "settings": {
-                "looping": true,
                 "close_when_inactive": true,
                 "hw_decode": true,
-                "local_file": "/var/home/seagloperator/Nextcloud/SeaGL 2025 talk material uploads/SeaGL 2025 interstitial.1080p.mp4"
+                "local_file": "/var/home/seagloperator/Nextcloud/SeaGL 2025 talk material uploads/SeaGL 2025 interstitial.1080p.mp4",
+                "looping": true
             },
             "mixers": 255,
             "sync": 0,
@@ -1829,16 +1829,13 @@
                     "websocketConnectionTab": 16
                 },
                 {
-                    "mqttConnectionTab": 17
+                    "twitchConnectionTab": 17
                 },
                 {
-                    "twitchConnectionTab": 18
+                    "variableTab": 18
                 },
                 {
-                    "variableTab": 19
-                },
-                {
-                    "actionQueueTab": 20
+                    "actionQueueTab": 19
                 }
             ],
             "saveWindowGeo": false,
@@ -1854,9 +1851,8 @@
                     "pos": 838
                 }
             ],
-            "version": "e1020a190932e2618e1ad52894e2861103c40ab7",
+            "version": "GITDIR-NOTFOUND",
             "websocketConnections": [],
-            "mqttConnections": [],
             "twitchConnections": [],
             "actionQueues": [],
             "dockWindows": {
