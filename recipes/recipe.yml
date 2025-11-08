@@ -18,6 +18,7 @@ modules:
       - obs-studio
       - obs-studio-devel # TODO figure out how to remove this, it's needed to build OBS Source Record
       - cmake # Ditto
+      - gcc-c++ # Ditto
       - mpv
       - yt-dlp
       - zenity
