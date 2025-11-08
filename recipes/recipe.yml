@@ -37,15 +37,13 @@ modules:
       - obs-studio-plugin-advanced-scene-switcher
   - type: script
     snippets:
-      - |
-        cd /tmp
-        git clone --branch 0.4.6 https://github.com/exeldro/obs-source-record.git
-        cd obs-source-record/
-        cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_OUT_OF_TREE=On && cmake --build build
-        cd build
-        sudo make install
-        # TODO figure out how to not do this
-        sudo mv /usr/lib/obs-plugins/source-record.so /usr/lib64/obs-plugins
+      - cd /tmp &&
+        git clone --branch 0.4.6 https://github.com/exeldro/obs-source-record.git &&
+        cd obs-source-record/ &&
+        cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_OUT_OF_TREE=On && cmake --build build &&
+        cd build &&
+        sudo make install &&
+        sudo mv /usr/lib/obs-plugins/source-record.so /usr/lib64/obs-plugins # TODO figure out how to not do this
   # This is early and targeted so that we can install Zrok in lower layers,
   # but not invalidate larger lower layers whenever anything in /etc changes
   - type: files
