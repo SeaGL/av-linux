@@ -11,6 +11,8 @@ http:// {
 		reverse_proxy localhost:4455
 	}
 
+	reverse_proxy /cockpit-mgmt/* localhost:9090
+
 	# All non-OBS traffic goes to birdhoused
 	reverse_proxy /* localhost:9000
 }
