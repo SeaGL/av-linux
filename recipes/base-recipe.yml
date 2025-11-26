@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-name: av-linux
-description: SeaGL Aviary Linux
+name: aviary-linux-base
+description: SeaGL Aviary Linux (base software image)
 
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 42
