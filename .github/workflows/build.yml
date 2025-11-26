@@ -40,6 +40,7 @@ jobs:
         uses: blue-build/github-action@v1.9
         if: steps.filter.outputs.base-recipe == 'true'
         with:
+          cli_version:  v0.9.26
           recipe: base-recipe.yml
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
@@ -56,6 +57,7 @@ jobs:
       - name: Build Aviary Image
         uses: blue-build/github-action@v1.9
         with:
+          cli_version:  v0.9.26
           recipe: recipe.yml
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
