@@ -117,6 +117,11 @@ class AviaryuiApplication(Adw.Application):
         # TODO figure out how to just bind this to a toggle
         # And not do this stupid shit
         new_state = not action.get_state()
+        # TODO do an async I/O call
+        # Caution for development: this file gets written to the Flatpak's /tmp!
+        # Don't be surprised if you don't see this file in the host /tmp.
+        with open('/tmp/aviaryui-state', 'w+') as f:
+            f.write(str(new_state) + '\n')
         action.change_state(GLib.Variant.new_boolean(new_state))
 
         status_label = self.props.active_window.status_label
