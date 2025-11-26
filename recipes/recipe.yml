@@ -22,7 +22,7 @@ modules:
         rpm-ostree install meson cmake glib2-devel gtk4-devel &&
         meson setup /tmp/aviaryui-meson --prefix=/usr &&
         meson compile -C /tmp/aviaryui-meson/ &&
-        meson install -C /tmp/aviaryui-meson 
+        meson install -C /tmp/aviaryui-meson
         # TODO figure out how to rip these build deps out of the final image
         # rpm-ostree uninstall meson cmake glib2-devel gtk4-devel
   - type: containerfile
