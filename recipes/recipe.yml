@@ -1,0 +1,65 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: aviary-linux-base
+description: SeaGL Aviary Linux (base software image)
+
+base-image: ghcr.io/seagl/aviary-linux-base
+image-version: latest
+
+modules:
+  - type: gschema-overrides
+    include:
+      - zz1-disable-gnome-shell-animations.gschema.override
+      - zz1-disable-screen-lock.gschema.override
+      - zz1-gnome-shell-extensions.gschema.override
+      - zz1-set-gnome-shell-dock.gschema.override
+      - zz1-suppress-autosuspend.gschema.override
+  - type: containerfile
+    snippets:
+      - >
+        RUN --mount=type=bind,src=apps/aviaryui,dst=/tmp/aviaryui
+        cd /tmp/aviaryui &&
+        rpm-ostree install meson cmake glib2-devel gtk4-devel &&
+        meson setup /tmp/aviaryui-meson --prefix=/usr &&
+        meson compile -C /tmp/aviaryui-meson/ &&
+        meson install -C /tmp/aviaryui-meson 
+        # TODO figure out how to rip these build deps out of the final image
+        # rpm-ostree uninstall meson cmake glib2-devel gtk4-devel
+  - type: containerfile
+    snippets:
+      # XXX figure out why, without --no-bin-links, npm throws EROFS on chmod() on index.js... which SEEMINGLY is actually the creation of a symlink?
+      # Except manually creating the symlink works just fine...?
+      - RUN --mount=type=bind,src=apps/birdhoused,dst=/tmp/birdhoused cd /tmp/birdhoused && npm --no-bin-links --prefix=/usr install -g --install-links --omit=dev . && ln -s /usr/lib/node_modules/birdhouse-client/index.js /usr/bin/birdhoused && rm -rf /root/.npm
+  - type: files
+    files:
+      - source: usr
+        destination: /usr
+      - source: etc
+        destination: /etc
+      # TODO lol should this just use the above directory? I didn't because then it makes the dir hidden in the development repo filesystem...
+      - source: home-config
+        destination: /etc/skel/.config
+  - type: os-release
+    properties:
+      ID: seaglav
+      ID_LIKE: fedora
+      NAME: SeaGL Aviary Linux
+      PRETTY_NAME: SeaGL Avian Linux 2025 (FROM Fedora Silverblue 42)
+      CODE_NAME: '2025'
+
+      IMAGE_VENDOR: SeaGL
+      IMAGE_NAME: av-linux
+      IMAGE_LIKE: fedora
+
+      HOME_URL: https://github.com/SeaGL/av-linux
+      DOCUMENTATION_URL: https://github.com/SeaGL/av-linux/blob/main/README.md
+      SUPPORT_URL: https://seagl.org/chat
+      BUG_SUPPORT_URL: https://github.com/SeaGL/av-linux/issues
+      LOGO_ICON: seagl-logo-icon
+      # TODO LOGO_COLOR
+  - type: containerfile
+    containerfiles:
+      - main
+
+  - type: signing
+
