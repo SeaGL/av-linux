@@ -29,8 +29,16 @@ jobs:
       id-token: write
 
     steps:
+      - uses: actions/checkout@6
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            base-recipe:
+              - 'recipes/base-recipe.yml'
       - name: Build Aviary Base Image
         uses: blue-build/github-action@v1.9
+        if: steps.filter.outputs.base-recipe == 'true'
         with:
           recipe: base-recipe.yml
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
@@ -43,6 +51,8 @@ jobs:
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
 
+          skip_checkout: true
+
       - name: Build Aviary Image
         uses: blue-build/github-action@v1.9
         with:
@@ -53,3 +63,5 @@ jobs:
 
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
+
+          skip_checkout: true
