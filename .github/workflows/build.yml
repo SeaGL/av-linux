@@ -37,7 +37,7 @@ jobs:
             base-recipe:
               - 'recipes/base-recipe.yml'
       - name: Build Aviary Base Image
-        uses: blue-build/github-action@v1.9
+        uses: blue-build/github-action@v1.10
         if: steps.filter.outputs.base-recipe == 'true'
         with:
           cli_version:  v0.9.26
@@ -55,7 +55,7 @@ jobs:
           skip_checkout: true
 
       - name: Build Aviary Image
-        uses: blue-build/github-action@v1.9
+        uses: blue-build/github-action@v1.10
         with:
           cli_version:  v0.9.26
           recipe: recipe.yml
